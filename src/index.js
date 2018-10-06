@@ -34,7 +34,13 @@ class TodoApp extends Component {
         }
     }
     toggleTodo(index){
-        console.log(index);
+        // console.log(index);
+        console.log(this.state.todos);
+        const todos = this.state.todos;
+        let complete = todos[index].complete;
+        todos[index].complete = !complete;
+
+        this.setState({todos})
     }
 
 
@@ -51,13 +57,13 @@ class TodoApp extends Component {
                         {
                             this.state.todos.map((todo, index) => {
                                 const todoresult = todo.complete ? 'complete' : '';
-                                      console.log(index, '---1');
+                                   //   console.log(index, '---1');
                                 return <TodoList
                                     __key={index}
                                         key={index}
                                     title={todo.title}
                                     className={todoresult}
-                                    toggleTodo={this.toggleTodo.bind()}
+                                    toggleTodo={this.toggleTodo.bind(this, index)}
                                 />
                             })
                         }
