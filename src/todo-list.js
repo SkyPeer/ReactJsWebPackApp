@@ -14,7 +14,10 @@ const TodoList = function (props) {
     // console.log(Object.keys(props));
     // console.log('component key', props.__key);
     return(
-        <li key={props.__key} className={props.className} data-from="Valyaaa" onClick={props.toggleTodo}>{props.title}</li>
+        <div>
+        <li key={props.__key} className={props.className} onClick={props.toggleTodo}>{props.title}</li>
+            <div> X </div>
+        </div>
     )
 };
 
