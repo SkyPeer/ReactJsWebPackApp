@@ -1,19 +1,24 @@
-
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-
-const htmlPlugin = new HtmlWebPackPlugin({
-    template: "./src/index.html",
-    filename: "./index.html"
-});
+let path = require('path')
 
 module.exports = {
+    entry: {
+        browser: './app/index.js',
+    },
+    output: {
+        filename: 'scripts.js',
+        path: path.resolve(__dirname, 'build')
+    },
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader"
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react'],
+                         "plugins": ["@babel/plugin-proposal-class-properties"]
+                    }
                 }
             },
             {
@@ -22,5 +27,13 @@ module.exports = {
             }
         ]
     },
-    plugins: [htmlPlugin]
+    resolve: {
+        extensions: ['.js', '.css'],
+        modules: [
+            path.resolve(__dirname, 'node_modules'),
+            path.resolve(__dirname, 'app'),
+        ]
+    },
+    mode: 'development',
+    devtool: 'source-map'
 };
