@@ -4,28 +4,22 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
+
 class TaskListClass extends Component {
 
-    constructor(props){
+   constructor(props){
         super(props);
-        
-
-    }
-
+        this.state = {
+            array2: ['a1', 'a2']
+        }
+    };
 
     render(){
 
-
-
-
-
-
         return(
-
-        <div>
-            <h1>Hello!</h1>
-        </div>
-
+                <div>
+                    <h1>{array3[1]}</h1>
+                </div>
         )}
 
 }
