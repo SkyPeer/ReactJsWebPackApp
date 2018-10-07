@@ -1,5 +1,4 @@
-//let testFunc = require('./testfunc');
-import testFunc from "./testfunc";
+//import './index2'
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import './style.css';
@@ -14,17 +13,16 @@ console.log('____', 1, testFunc[0]());
 */
 //console.log(testFunc());
 
-
 class TodoApp extends Component {
 
     constructor(props){
         super(props);
 
         this.state = { // состояние
-            todos: [
+            array: [
                 {
                     title: 'Выучить Реакт',
-                    complete: true
+                    complete: false
                 },
                 {
                     title: 'Не Выучить Реакт',
@@ -35,15 +33,16 @@ class TodoApp extends Component {
     }
     toggleTodo(index){
         // console.log(index);
-        console.log(this.state.todos);
-        const todos = this.state.todos;
-        let complete = todos[index].complete;
-        todos[index].complete = !complete;
-
-        this.setState({todos})
+        console.log('toggleTodo = ', this.state.array);
+        const array = this.state.array;
+        let complete = array[index].complete;
+        array[index].complete = !complete;
+        this.setState({array})
     }
 
-
+    toggleDel(index){
+        console.log('toggleDel --- index = ', index)
+    }
 
     render(){
         return(
@@ -55,15 +54,16 @@ class TodoApp extends Component {
                 <div>
                     <ol>
                         {
-                            this.state.todos.map((todo, index) => {
-                                const todoresult = todo.complete ? 'complete' : '';
+                            this.state.array.map((array, index) => {
+                                const todoresult = array.complete ? 'complete' : '';
                                    //   console.log(index, '---1');
                                 return <TodoList
-                                    __key={index}
-                                        key={index}
-                                    title={todo.title}
+                                    /*__key={index}
+                                        key={index}*/
+                                    title={array.title}
                                     className={todoresult}
                                     toggleTodo={this.toggleTodo.bind(this, index)}
+                                    //toggleDel={this.toggleDel.bind(this, index)}
                                 />
                             })
                         }
