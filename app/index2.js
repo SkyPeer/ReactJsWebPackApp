@@ -3,13 +3,18 @@
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import TodoApp from './index'
 
 class TaskListClass extends Component {
 
     state = {
-        mans: ['Петя', 'Вася', 'Богдан']
-    };
+        mans: [
+            'Петя',
+            'Вася',
+            'Богдан'
 
+        ]
+    };
 
     delMan = (index) => {
         let {mans} = this.state;
@@ -20,6 +25,7 @@ class TaskListClass extends Component {
     componentDidMount() {
         console.log(`TaskListClass примонтирован`)
     }
+
 
     render() {
 
@@ -40,6 +46,9 @@ class TaskListClass extends Component {
 
 }
 
+let todoapp = TodoApp;
+
+console.log('newState:', todoapp);
 
 ReactDOM.render(
     <TaskListClass/>,

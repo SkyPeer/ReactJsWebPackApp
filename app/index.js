@@ -1,8 +1,8 @@
-import 'index2'
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import './style.css';
 import TodoList from './todo-list'
+import 'index2'
 /*
  //const testText = testFunc();
  const Index = () => {
@@ -72,7 +72,10 @@ class TodoApp extends Component {
 
         );
     }
+
 }
+
+
 
 ReactDOM.render(
     <TodoApp/>,
