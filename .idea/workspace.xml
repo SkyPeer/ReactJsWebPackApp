@@ -24,8 +24,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="975">
+              <caret line="73" column="52" lean-forward="false" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="52" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -36,8 +36,8 @@
       <file leaf-file-name="todo-list.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/todo-list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="390">
+              <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
               <folding>
                 <element signature="e#41#159#0" expanded="false" />
                 <element signature="e#201#252#0" expanded="false" />
@@ -46,13 +46,25 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="todo-list-new.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/todo-list-new.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="48" column="21" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+            <state relative-caret-position="676">
+              <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
               <folding>
-                <element signature="e#78#117#0" expanded="true" />
+                <element signature="e#77#116#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,10 +110,11 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/../practice/Parctice/this.js" />
-        <option value="$PROJECT_DIR$/app/todo-list.js" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/../practice/Course4/Week2/splice.js" />
+        <option value="$PROJECT_DIR$/app/todo-list-new.js" />
         <option value="$PROJECT_DIR$/app/index2.js" />
+        <option value="$PROJECT_DIR$/app/todo-list.js" />
         <option value="$PROJECT_DIR$/app/index.js" />
       </list>
     </option>
@@ -345,23 +358,23 @@
       <workItem from="1538851563439" duration="11790000" />
       <workItem from="1538884310885" duration="26661000" />
       <workItem from="1539007889023" duration="3673000" />
-      <workItem from="1539014559501" duration="3457000" />
+      <workItem from="1539014559501" duration="4944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73030000" />
+    <option name="totallyTimeSpent" value="74517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18387777" sideWeight="0.7763578" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18387777" sideWeight="0.7776204" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18387777" sideWeight="0.22364217" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3225108" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18387777" sideWeight="0.22237961" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23593074" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3961039" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -406,14 +419,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1196">
@@ -765,18 +770,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="48" column="21" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+        <state relative-caret-position="676">
+          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
           <folding>
-            <element signature="e#78#117#0" expanded="true" />
+            <element signature="e#77#116#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/todo-list-new.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/todo-list.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="390">
+          <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
             <element signature="e#41#159#0" expanded="false" />
             <element signature="e#201#252#0" expanded="false" />
@@ -786,8 +801,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="975">
+          <caret line="73" column="52" lean-forward="false" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="52" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

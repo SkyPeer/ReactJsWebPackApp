@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import './style.css';
-import TodoList from './todo-list'
-import 'index2'
+import TodoList from './todo-list';
+import 'index2';
+
 /*
  //const testText = testFunc();
  const Index = () => {
@@ -19,37 +20,48 @@ class TodoApp extends Component {
         super(props);
 
         this.state = {
+
+            appName: 'Todo App!',
+
             array: [
                 {
                     title: 'Выучить Реакт',
                     complete: false
                 },
                 {
-                    title: 'Не Выучить Реакт',
+                    title: 'НЕ Выучить Реакт',
+                    complete: false
+                },
+                {
+                    title: 'Выучить Ангуляр',
+                    complete: false
+                },
+                {
+                    title: 'НЕ Выучить Ангуляр',
                     complete: false
                 }
             ]
         }
     }
 
-    toggleTodo(index) {
+    toggleTodoFunc(index) {
         // console.log(index);
-        console.log('toggleTodo = ', this.state.array);
+        console.log('toggleTodoFunc = ', this.state.array);
         const array = this.state.array;
         let complete = array[index].complete;
         array[index].complete = !complete;
         this.setState({array})
     }
 
-    toggleDel(index) {
-        console.log('toggleDel --- index = ', index)
+    toggleDelFunc(index) {
+        console.log('toggleDelFunc  - index = ', index)
     }
 
     render() {
         return (
             <div>
                 <div>
-                    <h1>Todo App</h1>
+                    <h1>{this.state.appName}</h1>
                 </div>
 
                 <div>
@@ -57,10 +69,12 @@ class TodoApp extends Component {
                         {
                             this.state.array.map((array, index) => {
                                 const todoresult = array.complete ? 'complete' : '';
-                                return <TodoList key={index}
-                                                 title={array.title}
-                                                 className={todoresult}
-                                                 toggleTodo={() => this.toggleTodo(index)}
+                                return <TodoList    key={index}
+                                                    title={array.title}
+                                                    className={todoresult}
+                                                    toggleTodo={() => this.toggleTodoFunc(index)}
+                                                    toggleDel={() => this.toggleDelFunc(index)}
+
                                 />
                             })
                         }
@@ -74,8 +88,6 @@ class TodoApp extends Component {
     }
 
 }
-
-
 
 ReactDOM.render(
     <TodoApp/>,

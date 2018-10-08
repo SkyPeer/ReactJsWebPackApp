@@ -148,11 +148,18 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(TodoApp).call(this, props));
     _this.state = {
+      appName: 'Todo App!',
       array: [{
         title: 'Выучить Реакт',
         complete: false
       }, {
-        title: 'Не Выучить Реакт',
+        title: 'НЕ Выучить Реакт',
+        complete: false
+      }, {
+        title: 'Выучить Ангуляр',
+        complete: false
+      }, {
+        title: 'НЕ Выучить Ангуляр',
         complete: false
       }]
     };
@@ -160,10 +167,10 @@ function (_Component) {
   }
 
   _createClass(TodoApp, [{
-    key: "toggleTodo",
-    value: function toggleTodo(index) {
+    key: "toggleTodoFunc",
+    value: function toggleTodoFunc(index) {
       // console.log(index);
-      console.log('toggleTodo = ', this.state.array);
+      console.log('toggleTodoFunc = ', this.state.array);
       var array = this.state.array;
       var complete = array[index].complete;
       array[index].complete = !complete;
@@ -172,23 +179,26 @@ function (_Component) {
       });
     }
   }, {
-    key: "toggleDel",
-    value: function toggleDel(index) {
-      console.log('toggleDel --- index = ', index);
+    key: "toggleDelFunc",
+    value: function toggleDelFunc(index) {
+      console.log('toggleDelFunc  - index = ', index);
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Todo App")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.state.array.map(function (array, index) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.appName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.state.array.map(function (array, index) {
         var todoresult = array.complete ? 'complete' : '';
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_todo_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
           key: index,
           title: array.title,
           className: todoresult,
           toggleTodo: function toggleTodo() {
-            return _this2.toggleTodo(index);
+            return _this2.toggleTodoFunc(index);
+          },
+          toggleDel: function toggleDel() {
+            return _this2.toggleDelFunc(index);
           }
         });
       }))));
@@ -215,7 +225,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index */ "./app/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -238,7 +247,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 //let testFunc = require('./testfunc');
 //import testFunc from "./testfunc";
-
 
 
 
@@ -277,12 +285,13 @@ function (_Component) {
   }
 
   _createClass(TaskListClass, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log("TaskListClass \u043F\u0440\u0438\u043C\u043E\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u043D");
-    }
-  }, {
     key: "render",
+
+    /*
+    componentDidMount() {
+        console.log(`TaskListClass примонтирован`)
+    }
+       */
     value: function render() {
       var _this2 = this;
 
@@ -304,8 +313,6 @@ function (_Component) {
   return TaskListClass;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-var todoapp = _index__WEBPACK_IMPORTED_MODULE_2__["default"];
-console.log('newState:', todoapp);
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TaskListClass, null), document.getElementById('index2'));
 
 /***/ }),

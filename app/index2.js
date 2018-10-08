@@ -1,9 +1,8 @@
 //let testFunc = require('./testfunc');
 //import testFunc from "./testfunc";
-
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import TodoApp from './index'
+
 
 class TaskListClass extends Component {
 
@@ -22,10 +21,11 @@ class TaskListClass extends Component {
         this.setState({mans})
     };
 
+    /*
     componentDidMount() {
         console.log(`TaskListClass примонтирован`)
     }
-
+       */
 
     render() {
 
@@ -46,9 +46,6 @@ class TaskListClass extends Component {
 
 }
 
-let todoapp = TodoApp;
-
-console.log('newState:', todoapp);
 
 ReactDOM.render(
     <TaskListClass/>,
