@@ -11,7 +11,6 @@ class TaskListClass extends Component {
             'Петя',
             'Вася',
             'Богдан'
-
         ]
     };
 
