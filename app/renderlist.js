@@ -19,14 +19,17 @@ function renderList(arg) {
         };
 
         onClickFunc = (index) => {
-        console.log('onClickFunc:', index);
-        let {taskListArray} = this.state;
-        taskListArray.push({
+        //console.log('onClickFunc:', index);
+        //console.log(this.state);
+            let taskListArray = this.state.taskListArray;
+        //console.log(typeof taskListArray, Array.isArray(taskListArray)); // object array-true
+            taskListArray.push({
         title: 'test',
         complete: false});
-    this.setState({taskListArray})
+        this.setState(taskListArray);
+            console.log(taskListArray)
     };
-        
+
         /*
         onClickFunc = function(index){
             console.log('onClickFunc:', index);

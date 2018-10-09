@@ -103,8 +103,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var createList = function createList(props, onClickFunc) {
-  var taskList = [];
-  console.log('----- props', props);
+  var taskList = []; // console.log('----- props', props);
 
   var _loop = function _loop(i) {
     taskList.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CreateListComponent, {
@@ -124,7 +123,7 @@ var createList = function createList(props, onClickFunc) {
 };
 
 var CreateListComponent = function CreateListComponent(props) {
-  console.log('CreateListComponent', props);
+  // console.log('CreateListComponent', props);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     onClick: props.onClick
   }, props.title);
@@ -241,16 +240,18 @@ function renderList(arg) {
       });
 
       _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickFunc", function (index) {
-        console.log('onClickFunc:', index);
-        var taskListArray = _this.state.taskListArray;
+        //console.log('onClickFunc:', index);
+        //console.log(this.state);
+        var taskListArray = _this.state.taskListArray; //console.log(typeof taskListArray, Array.isArray(taskListArray)); // object array-true
+
         taskListArray.push({
           title: 'test',
           complete: false
         });
 
-        _this.setState({
-          taskListArray: taskListArray
-        });
+        _this.setState(taskListArray);
+
+        console.log(taskListArray);
       });
 
       return _this;

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 let createList = function (props, onClickFunc) {
     let taskList = [];
-    console.log('----- props', props);
+   // console.log('----- props', props);
 
 
         for (let i=0; i < props.length; i++){
@@ -26,7 +26,7 @@ let createList = function (props, onClickFunc) {
     };
 
 let CreateListComponent = function (props) {
-    console.log('CreateListComponent', props);
+   // console.log('CreateListComponent', props);
     return(
         <li onClick={props.onClick}>{props.title}</li>
     )
