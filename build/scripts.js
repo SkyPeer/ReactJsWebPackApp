@@ -102,7 +102,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var createList = function createList(props, onClickFunc) {
+var createList = function createList(props, onClickFunc, delTaskFunc) {
   var taskList = []; // console.log('----- props', props);
 
   var _loop = function _loop(i) {
@@ -110,6 +110,9 @@ var createList = function createList(props, onClickFunc) {
       key: i,
       onClick: function onClick() {
         onClickFunc(i);
+      },
+      delClick: function delClick() {
+        delTaskFunc(i);
       },
       title: props[i].title
     }));
@@ -124,9 +127,11 @@ var createList = function createList(props, onClickFunc) {
 
 var CreateListComponent = function CreateListComponent(props) {
   // console.log('CreateListComponent', props);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     onClick: props.onClick
-  }, props.title);
+  }, props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    onClick: props.delClick
+  }, " - X - "));
 };
 /*
 return(
@@ -254,6 +259,15 @@ function renderList(arg) {
         console.log(taskListArray);
       });
 
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "delTaskFunc", function (index) {
+        var taskListArray = _this.state.taskListArray;
+        taskListArray.splice(index, 1);
+
+        _this.setState({
+          taskListArray: taskListArray
+        });
+      });
+
       return _this;
     }
 
@@ -287,7 +301,7 @@ function renderList(arg) {
           /*<div>
               <h1>{this.state.taskListArray}</h1>
           </div> */
-          Object(_createlist__WEBPACK_IMPORTED_MODULE_1__["default"])(this.state.taskListArray, this.onClickFunc)
+          Object(_createlist__WEBPACK_IMPORTED_MODULE_1__["default"])(this.state.taskListArray, this.onClickFunc, this.delTaskFunc)
         );
       }
     }]);

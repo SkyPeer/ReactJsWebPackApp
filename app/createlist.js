@@ -2,21 +2,25 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 
-let createList = function (props, onClickFunc) {
-    let taskList = [];
+    let createList = function (props, onClickFunc, delTaskFunc) {
+        let taskList = [];
    // console.log('----- props', props);
 
-
         for (let i=0; i < props.length; i++){
-        taskList.push(
+
+
+            taskList.push(
 
             <CreateListComponent
                 key={i}
                 onClick={ () => { onClickFunc(i) } }
+                delClick = { () => { delTaskFunc(i) }}
                 title = {props[i].title}
             />
 
-        )}
+            )
+        }
+
         return (<div>
                     <ol>
                         {taskList}
@@ -26,9 +30,11 @@ let createList = function (props, onClickFunc) {
     };
 
 let CreateListComponent = function (props) {
-   // console.log('CreateListComponent', props);
+  // console.log('CreateListComponent', props);
     return(
-        <li onClick={props.onClick}>{props.title}</li>
+        <li>
+            <div onClick={props.onClick}>{props.title}</div><div onClick={props.delClick}> - X - </div>
+        </li>
     )
 };
     /*
