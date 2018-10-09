@@ -1,5 +1,22 @@
-import RenderList from './renderlist';
+import renderList from './renderlist';
 
+let readyRenderList = renderList([
+    {
+        title: 'Выучить Реакт',
+        complete: false
+    },
+    {
+        title: 'НЕ Выучить Реакт',
+        complete: false
+    },
+    {
+        title: 'Выучить Ангуляр',
+        complete: false
+    },
+    {
+        title: 'НЕ Выучить Ангуляр',
+        complete: false
+    }
+    ]);
 
-
-export default RenderList(['a1', 'a4'])
+export default readyRenderList

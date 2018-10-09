@@ -74,7 +74,7 @@ class TodoApp extends Component {
                                                      key={index}
                                                      title={array.title}
                                                      className={todoresult}
-                                                     toggleTodo={() => this.toggleTodoFunc(index)}
+                                                     toggleTodo={() => this.toggleTodoFunc(index)} /*toggleTodo={this.toggleTodo.bind(this,index)}*/
                                                      toggleDel={() => this.toggleDelFunc(index)}/>
                             })
                         }

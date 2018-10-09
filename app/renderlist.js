@@ -1,21 +1,39 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import createList from './createlist'
 
-function RenderList(arg) {
+function renderList(arg) {
+
+    //console.log(arg);
+
     class TaskListComponent extends Component{
-        constructor(props){
+        /*constructor(props){
             super(props);
 
             this.state = {
-                array: arg
+                taskListArray: arg
             }
+        } */
 
-        }
+        state = {
+            taskListArray: arg
+        };
+
+        onClickFunc = function(index){
+            console.log('onClickFunc:', index)
+        };
+        /*onClickFunc = (idx) => {
+            console.log(idx)
+        }; */
 
         render() {
-            return( <div>
-                <h1>{this.state.array}</h1>
-                <p>This is my first React Component.</p>
-            </div> )
+            return(
+                /*<div>
+                    <h1>{this.state.taskListArray}</h1>
+                </div> */
+
+                    createList(this.state.taskListArray, this.onClickFunc)
+
+            )
         }
     }
 
@@ -37,4 +55,4 @@ class TaskList extends Component{
 
 } // end of Component
 */
-export default RenderList
+export default renderList

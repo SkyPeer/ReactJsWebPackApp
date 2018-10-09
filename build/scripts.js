@@ -86,6 +86,72 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./app/createlist.js":
+/*!***************************!*\
+  !*** ./app/createlist.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var createList = function createList(props, onClickFunc) {
+  var taskList = [];
+  console.log('----- props', props);
+
+  var _loop = function _loop(i) {
+    taskList.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: i,
+      onClick: function onClick() {
+        onClickFunc(i);
+      }
+    }, " ", props[i].title, " "));
+  };
+
+  for (var i = 0; i < props.length; i++) {
+    _loop(i);
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, taskList));
+};
+/*
+return(
+    <div>
+        <h1>{props}</h1>
+        <p>This is my first React Component.2312</p>
+    </div>
+)
+*/
+
+/*
+const TodoList = function (props) {
+    // console.log(typeof props, Array.isArray(props));
+    // console.log(Object.keys(props));
+    // console.log('component key', props.__key);
+    return (
+        <div >
+            <li>
+                <div className={props.className} onClick={props.toggleTodo}>{props.title}</div>
+                <div onClick={props.toggleDel}> X </div>
+            </li>
+        </div>
+    )
+};
+*/
+//console.log('----- createList:', createList);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (createList);
+
+/***/ }),
+
 /***/ "./app/index.js":
 /*!**********************!*\
   !*** ./app/index.js ***!
@@ -118,6 +184,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _createlist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createlist */ "./app/createlist.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -128,38 +195,63 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-function RenderList(arg) {
+
+
+function renderList(arg) {
+  //console.log(arg);
   var TaskListComponent =
   /*#__PURE__*/
   function (_Component) {
     _inherits(TaskListComponent, _Component);
 
-    function TaskListComponent(props) {
+    function TaskListComponent() {
+      var _getPrototypeOf2;
+
       var _this;
 
       _classCallCheck(this, TaskListComponent);
 
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(TaskListComponent).call(this, props));
-      _this.state = {
-        array: arg
-      };
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(TaskListComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+        taskListArray: arg
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickFunc", function (index) {
+        console.log('onClickFunc:', index);
+      });
+
       return _this;
     }
 
     _createClass(TaskListComponent, [{
       key: "render",
+
+      /*onClickFunc = (idx) => {
+          console.log(idx)
+      }; */
       value: function render() {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.array), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "This is my first React Component."));
+        return (
+          /*<div>
+              <h1>{this.state.taskListArray}</h1>
+          </div> */
+          Object(_createlist__WEBPACK_IMPORTED_MODULE_1__["default"])(this.state.taskListArray, this.onClickFunc)
+        );
       }
     }]);
 
@@ -186,7 +278,7 @@ class TaskList extends Component{
 */
 
 
-/* harmony default export */ __webpack_exports__["default"] = (RenderList);
+/* harmony default export */ __webpack_exports__["default"] = (renderList);
 
 /***/ }),
 
@@ -201,7 +293,20 @@ class TaskList extends Component{
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _renderlist__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderlist */ "./app/renderlist.js");
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_renderlist__WEBPACK_IMPORTED_MODULE_0__["default"])(['a1', 'a4']));
+var readyRenderList = Object(_renderlist__WEBPACK_IMPORTED_MODULE_0__["default"])([{
+  title: 'Выучить Реакт',
+  complete: false
+}, {
+  title: 'НЕ Выучить Реакт',
+  complete: false
+}, {
+  title: 'Выучить Ангуляр',
+  complete: false
+}, {
+  title: 'НЕ Выучить Ангуляр',
+  complete: false
+}]);
+/* harmony default export */ __webpack_exports__["default"] = (readyRenderList);
 
 /***/ }),
 
