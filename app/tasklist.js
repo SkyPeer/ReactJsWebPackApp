@@ -2,4 +2,4 @@ import RenderList from './renderlist';
 
 
 
-export default RenderList
+export default RenderList(['a1', 'a4'])

@@ -1,28 +1,40 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom';
 
+function RenderList(arg) {
+    class TaskListComponent extends Component{
+        constructor(props){
+            super(props);
 
+            this.state = {
+                array: arg
+            }
 
-let a = 'Hello World';
+        }
 
+        render() {
+            return( <div>
+                <h1>{this.state.array}</h1>
+                <p>This is my first React Component.</p>
+            </div> )
+        }
+    }
+
+    return TaskListComponent
+}
+/*
 class TaskList extends Component{
 
     constructor(props){
         super(props)
-
-
     } // end of construcor
-
 
     render(){
         return (
-            <div>{a}</div>
+            <div>{a + '  ' + 22}</div>
         ) // end of return
 
     }// end of render
 
 } // end of Component
-
-export default TaskList
-
-
+*/
+export default RenderList

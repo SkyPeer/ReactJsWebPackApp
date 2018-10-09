@@ -118,8 +118,6 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -140,33 +138,55 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var a = 'Hello World';
+function RenderList(arg) {
+  var TaskListComponent =
+  /*#__PURE__*/
+  function (_Component) {
+    _inherits(TaskListComponent, _Component);
 
-var TaskList =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(TaskList, _Component);
+    function TaskListComponent(props) {
+      var _this;
 
-  function TaskList(props) {
-    _classCallCheck(this, TaskList);
+      _classCallCheck(this, TaskListComponent);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(TaskList).call(this, props));
-  } // end of construcor
+      _this = _possibleConstructorReturn(this, _getPrototypeOf(TaskListComponent).call(this, props));
+      _this.state = {
+        array: arg
+      };
+      return _this;
+    }
+
+    _createClass(TaskListComponent, [{
+      key: "render",
+      value: function render() {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.array), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "This is my first React Component."));
+      }
+    }]);
+
+    return TaskListComponent;
+  }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+  return TaskListComponent;
+}
+/*
+class TaskList extends Component{
+
+    constructor(props){
+        super(props)
+    } // end of construcor
+
+    render(){
+        return (
+            <div>{a + '  ' + 22}</div>
+        ) // end of return
+
+    }// end of render
+
+} // end of Component
+*/
 
 
-  _createClass(TaskList, [{
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, a); // end of return
-    } // end of render
-
-  }]);
-
-  return TaskList;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); // end of Component
-
-
-/* harmony default export */ __webpack_exports__["default"] = (TaskList);
+/* harmony default export */ __webpack_exports__["default"] = (RenderList);
 
 /***/ }),
 
@@ -181,7 +201,7 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _renderlist__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderlist */ "./app/renderlist.js");
 
-/* harmony default export */ __webpack_exports__["default"] = (_renderlist__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (Object(_renderlist__WEBPACK_IMPORTED_MODULE_0__["default"])(['a1', 'a4']));
 
 /***/ }),
 
