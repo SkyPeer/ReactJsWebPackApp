@@ -10,18 +10,27 @@ let createList = function (props, onClickFunc) {
         for (let i=0; i < props.length; i++){
         taskList.push(
 
-            <li key={i} onClick={ () => { onClickFunc(i) } } > {props[i].title} </li>
+            <CreateListComponent
+                key={i}
+                onClick={ () => { onClickFunc(i) } }
+                title = {props[i].title}
+            />
 
         )}
         return (<div>
                     <ol>
                         {taskList}
                     </ol>
-               </div>
+                </div>
         )
     };
 
-
+let CreateListComponent = function (props) {
+    console.log('CreateListComponent', props);
+    return(
+        <li onClick={props.onClick}>{props.title}</li>
+    )
+};
     /*
     return(
         <div>

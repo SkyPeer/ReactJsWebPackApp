@@ -18,9 +18,35 @@ function renderList(arg) {
             taskListArray: arg
         };
 
+        onClickFunc = (index) => {
+        console.log('onClickFunc:', index);
+        let {taskListArray} = this.state;
+        taskListArray.push({
+        title: 'test',
+        complete: false});
+    this.setState({taskListArray})
+    };
+        
+        /*
         onClickFunc = function(index){
-            console.log('onClickFunc:', index)
+            console.log('onClickFunc:', index);
+            let {taskListArray} = this.state;
+            taskListArray.push({
+                title: 'test',
+                complete: false
+            });
+            this.setState({taskListArray})
+        }; */
+
+        /*
+        delMan = (index) => {
+            let {mans} = this.state;
+            mans.splice(index, 1);
+            this.setState({mans})
         };
+        */
+
+
         /*onClickFunc = (idx) => {
             console.log(idx)
         }; */

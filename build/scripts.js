@@ -107,12 +107,13 @@ var createList = function createList(props, onClickFunc) {
   console.log('----- props', props);
 
   var _loop = function _loop(i) {
-    taskList.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    taskList.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CreateListComponent, {
       key: i,
       onClick: function onClick() {
         onClickFunc(i);
-      }
-    }, " ", props[i].title, " "));
+      },
+      title: props[i].title
+    }));
   };
 
   for (var i = 0; i < props.length; i++) {
@@ -120,6 +121,13 @@ var createList = function createList(props, onClickFunc) {
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, taskList));
+};
+
+var CreateListComponent = function CreateListComponent(props) {
+  console.log('CreateListComponent', props);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    onClick: props.onClick
+  }, props.title);
 };
 /*
 return(
@@ -234,6 +242,15 @@ function renderList(arg) {
 
       _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickFunc", function (index) {
         console.log('onClickFunc:', index);
+        var taskListArray = _this.state.taskListArray;
+        taskListArray.push({
+          title: 'test',
+          complete: false
+        });
+
+        _this.setState({
+          taskListArray: taskListArray
+        });
       });
 
       return _this;
@@ -241,6 +258,25 @@ function renderList(arg) {
 
     _createClass(TaskListComponent, [{
       key: "render",
+
+      /*
+      onClickFunc = function(index){
+          console.log('onClickFunc:', index);
+          let {taskListArray} = this.state;
+          taskListArray.push({
+              title: 'test',
+              complete: false
+          });
+          this.setState({taskListArray})
+      }; */
+
+      /*
+      delMan = (index) => {
+          let {mans} = this.state;
+          mans.splice(index, 1);
+          this.setState({mans})
+      };
+      */
 
       /*onClickFunc = (idx) => {
           console.log(idx)
