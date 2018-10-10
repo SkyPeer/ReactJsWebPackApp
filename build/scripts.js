@@ -86,6 +86,36 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./app/addtolist.js":
+/*!**************************!*\
+  !*** ./app/addtolist.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var Form = function Form(addToListFunc) {
+  //let a = event.preventDefault();
+  var a = 79;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      addToListFunc(a);
+    }
+  }, " \u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C "));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Form);
+
+/***/ }),
+
 /***/ "./app/createlist.js":
 /*!***************************!*\
   !*** ./app/createlist.js ***!
@@ -199,6 +229,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _createlist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createlist */ "./app/createlist.js");
+/* harmony import */ var _addtolist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addtolist */ "./app/addtolist.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -218,6 +249,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -249,7 +281,8 @@ function renderList(arg) {
       _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickFunc", function (index) {
         var taskListArray = _this.state.taskListArray;
         console.log('------ onclickFunc', taskListArray[index].title, ' complete:', taskListArray[index].complete);
-        !taskListArray[index].complete ? taskListArray[index].complete = true : taskListArray[index].complete = false;
+        var taskStatus = taskListArray[index].complete;
+        !taskStatus ? taskListArray[index].complete = true : taskListArray[index].complete = false;
 
         _this.setState(taskListArray);
       });
@@ -259,6 +292,10 @@ function renderList(arg) {
         taskListArray.splice(index, 1);
 
         _this.setState(taskListArray);
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addTaskFunc", function (element) {
+        console.log(element);
       });
 
       return _this;
@@ -294,7 +331,7 @@ function renderList(arg) {
           /*<div>
               <h1>{this.state.taskListArray}</h1>
           </div> */
-          Object(_createlist__WEBPACK_IMPORTED_MODULE_1__["default"])(this.state.taskListArray, this.onClickFunc, this.delTaskFunc)
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object(_createlist__WEBPACK_IMPORTED_MODULE_1__["default"])(this.state.taskListArray, this.onClickFunc, this.delTaskFunc), Object(_addtolist__WEBPACK_IMPORTED_MODULE_2__["default"])(this.addTaskFunc))
         );
       }
     }]);

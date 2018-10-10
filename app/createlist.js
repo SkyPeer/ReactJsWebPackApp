@@ -20,9 +20,8 @@ import React, {Component} from 'react';
                 title = {props[i].title}
                 className = {complete}
 
-            />
+            />)
 
-            )
         }
 
         return (<div>

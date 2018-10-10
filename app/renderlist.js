@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import createList from './createlist'
+import addlist from './addtolist'
 
 function renderList(arg) {
 
@@ -33,7 +34,8 @@ function renderList(arg) {
         onClickFunc = (index) => {
             let taskListArray = this.state.taskListArray;
             console.log('------ onclickFunc', taskListArray[index].title, ' complete:', taskListArray[index].complete);
-            !taskListArray[index].complete ? taskListArray[index].complete = true : taskListArray[index].complete = false
+            let taskStatus = taskListArray[index].complete;
+            !taskStatus ? taskListArray[index].complete = true : taskListArray[index].complete = false;
             this.setState(taskListArray);
         };
 
@@ -45,6 +47,14 @@ function renderList(arg) {
 
                 this.setState(taskListArray)
         };
+
+
+        addTaskFunc = (element) => {
+            console.log(element)
+        };
+
+
+
 
         /*
         onClickFunc = function(index){
@@ -74,13 +84,20 @@ function renderList(arg) {
                 /*<div>
                     <h1>{this.state.taskListArray}</h1>
                 </div> */
-                    createList(this.state.taskListArray, this.onClickFunc, this.delTaskFunc)
+                <div>
+                    {createList(this.state.taskListArray, this.onClickFunc, this.delTaskFunc)}
+                    {addlist(this.addTaskFunc)}
+                </div>
+
             )
         }
     }
 
     return TaskListComponent
 }
+
+
+
 /*
 class TaskList extends Component{
 
