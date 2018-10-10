@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 
 
     let createList = function (props, onClickFunc, delTaskFunc) {
@@ -8,6 +7,9 @@ import ReactDOM from 'react-dom';
 
         for (let i=0; i < props.length; i++){
 
+            let complete = '';
+
+            props[i].complete ? complete = 'taskname complete' : complete = 'taskname';
 
             taskList.push(
 
@@ -16,6 +18,8 @@ import ReactDOM from 'react-dom';
                 onClick={ () => { onClickFunc(i) } }
                 delClick = { () => { delTaskFunc(i) }}
                 title = {props[i].title}
+                className = {complete}
+
             />
 
             )
@@ -33,7 +37,7 @@ let CreateListComponent = function (props) {
   // console.log('CreateListComponent', props);
     return(
         <li>
-            <div onClick={props.onClick}>{props.title}</div><div onClick={props.delClick}> - X - </div>
+            <div className={props.className} onClick={props.onClick}>{props.title}</div><div className="delbutton" onClick={props.delClick}> - X - </div>
         </li>
     )
 };

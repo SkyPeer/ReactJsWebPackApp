@@ -97,15 +97,14 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-
 
 
 var createList = function createList(props, onClickFunc, delTaskFunc) {
   var taskList = []; // console.log('----- props', props);
 
   var _loop = function _loop(i) {
+    var complete = '';
+    props[i].complete ? complete = 'taskname complete' : complete = 'taskname';
     taskList.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CreateListComponent, {
       key: i,
       onClick: function onClick() {
@@ -114,7 +113,8 @@ var createList = function createList(props, onClickFunc, delTaskFunc) {
       delClick: function delClick() {
         delTaskFunc(i);
       },
-      title: props[i].title
+      title: props[i].title,
+      className: complete
     }));
   };
 
@@ -128,8 +128,10 @@ var createList = function createList(props, onClickFunc, delTaskFunc) {
 var CreateListComponent = function CreateListComponent(props) {
   // console.log('CreateListComponent', props);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: props.className,
     onClick: props.onClick
   }, props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "delbutton",
     onClick: props.delClick
   }, " - X - "));
 };
@@ -245,27 +247,18 @@ function renderList(arg) {
       });
 
       _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickFunc", function (index) {
-        //console.log('onClickFunc:', index);
-        //console.log(this.state);
-        var taskListArray = _this.state.taskListArray; //console.log(typeof taskListArray, Array.isArray(taskListArray)); // object array-true
-
-        taskListArray.push({
-          title: 'test',
-          complete: false
-        });
+        var taskListArray = _this.state.taskListArray;
+        console.log('------ onclickFunc', taskListArray[index].title, ' complete:', taskListArray[index].complete);
+        !taskListArray[index].complete ? taskListArray[index].complete = true : taskListArray[index].complete = false;
 
         _this.setState(taskListArray);
-
-        console.log(taskListArray);
       });
 
       _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "delTaskFunc", function (index) {
         var taskListArray = _this.state.taskListArray;
         taskListArray.splice(index, 1);
 
-        _this.setState({
-          taskListArray: taskListArray
-        });
+        _this.setState(taskListArray);
       });
 
       return _this;

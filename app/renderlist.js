@@ -18,27 +18,32 @@ function renderList(arg) {
             taskListArray: arg
         };
 
-        onClickFunc = (index) => {
+        /*onClickFunc__ = (index) => {
         //console.log('onClickFunc:', index);
         //console.log(this.state);
             let taskListArray = this.state.taskListArray;
         //console.log(typeof taskListArray, Array.isArray(taskListArray)); // object array-true
             taskListArray.push({
-        title: 'test',
+        title: 'test: №' + index,
         complete: false});
         this.setState(taskListArray);
             console.log(taskListArray)
-    };
-/*
-        delTaskFunc = (index) =>{
-            let taskListArray = this.state.taskListArray;
-            this.setState( taskListArray.split(index, 1) )
         }; */
 
+        onClickFunc = (index) => {
+            let taskListArray = this.state.taskListArray;
+            console.log('------ onclickFunc', taskListArray[index].title, ' complete:', taskListArray[index].complete);
+            !taskListArray[index].complete ? taskListArray[index].complete = true : taskListArray[index].complete = false
+            this.setState(taskListArray);
+        };
+
+
         delTaskFunc = (index) => {
-            let {taskListArray} = this.state;
-            taskListArray.splice(index, 1);
-            this.setState({taskListArray})
+            let taskListArray = this.state.taskListArray;
+
+                taskListArray.splice(index, 1);
+
+                this.setState(taskListArray)
         };
 
         /*
@@ -69,9 +74,7 @@ function renderList(arg) {
                 /*<div>
                     <h1>{this.state.taskListArray}</h1>
                 </div> */
-
                     createList(this.state.taskListArray, this.onClickFunc, this.delTaskFunc)
-
             )
         }
     }
