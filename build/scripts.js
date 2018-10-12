@@ -211,6 +211,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _tasklist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tasklist */ "./app/tasklist.js");
 /* harmony import */ var _index2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index2 */ "./app/index2.js");
+/* harmony import */ var _index3_2components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./index3-2components */ "./app/index3-2components.js");
+
 
 
 
@@ -279,6 +281,8 @@ function (_Component) {
       mans: ['Петя', 'Вася', 'Богдан']
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "inputValue", '');
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "delMan", function (index) {
       var mans = _this.state.mans;
       mans.splice(index, 1);
@@ -286,6 +290,25 @@ function (_Component) {
       _this.setState({
         mans: mans
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "changeInputFunc", function (event) {
+      _this.inputValue = event.target.value;
+      console.log(event.target);
+      console.log('this.inputValue:', _this.inputValue);
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "clickButtonFunc", function () {
+      var mans = _this.state.mans;
+      mans.push(_this.inputValue);
+
+      _this.setState({
+        mans: mans
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "formSubmitFunc", function (event) {
+      event.preventDefault();
     });
 
     return _this;
@@ -313,7 +336,13 @@ function (_Component) {
           },
           key: idx
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, item));
-      }));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.formSubmitFunc
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u0412\u0432\u0435\u0434\u0438 \u043D\u043E\u0432\u043E\u0433\u043E MAN'\u0430: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.changeInputFunc
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.clickButtonFunc
+      }, "\u0412\u0432\u0435\u0441\u0442\u0438")));
     }
   }]);
 
@@ -321,6 +350,130 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TaskListClass, null), document.getElementById('index2'));
+
+/***/ }),
+
+/***/ "./app/index3-2components.js":
+/*!***********************************!*\
+  !*** ./app/index3-2components.js ***!
+  \***********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var ChildComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ChildComponent, _React$Component);
+
+  function ChildComponent() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ChildComponent);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChildComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      name: 'Бумеранг вернулся назад!!!!!!!!!!!!!!!!!!!!!!!!!'
+    });
+
+    return _this;
+  }
+
+  _createClass(ChildComponent, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          _this2.props.updateData(_this2.state.name);
+        }
+      }, "\u0417\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0431\u0443\u043C\u0435\u0440\u0430\u043D\u0433"));
+    }
+  }]);
+
+  return ChildComponent;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var ParentComponent =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(ParentComponent, _React$Component2);
+
+  function ParentComponent() {
+    var _getPrototypeOf3;
+
+    var _this3;
+
+    _classCallCheck(this, ParentComponent);
+
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    _this3 = _possibleConstructorReturn(this, (_getPrototypeOf3 = _getPrototypeOf(ParentComponent)).call.apply(_getPrototypeOf3, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "state", {
+      name: 'Бумеранг не запущен'
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "updateData", function (value) {
+      _this3.setState({
+        name: value
+      });
+    });
+
+    return _this3;
+  }
+
+  _createClass(ParentComponent, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "State: ", this.state.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ChildComponent, {
+        updateData: this.updateData
+      }));
+    }
+  }]);
+
+  return ParentComponent;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ParentComponent, null), document.getElementById('index3'));
 
 /***/ }),
 

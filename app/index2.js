@@ -13,11 +13,32 @@ class TaskListClass extends Component {
             'Богдан'
         ]
     };
+    inputValue = '';
+
 
     delMan = (index) => {
         let {mans} = this.state;
         mans.splice(index, 1);
         this.setState({mans})
+    };
+
+
+
+    changeInputFunc = (event) => {
+        this.inputValue = event.target.value;
+        console.log(event.target);
+        console.log('this.inputValue:', this.inputValue)
+    };
+
+
+    clickButtonFunc = () => {
+        let {mans} = this.state;
+        mans.push(this.inputValue);
+        this.setState({mans})
+    };
+
+    formSubmitFunc = (event) => {
+        event.preventDefault();
     };
 
     /*
@@ -38,7 +59,18 @@ class TaskListClass extends Component {
                             <h5>{item}</h5>
                         </div>
                     )}
+
+
+                    <form onSubmit={this.formSubmitFunc}>
+
+                        <label>Введи нового MAN'а: <input onChange = { this.changeInputFunc } /></label>
+
+                        <button onClick={this.clickButtonFunc}>Ввести</button>
+
+                    </form>
+
             </div>
+
         );
     }
 
