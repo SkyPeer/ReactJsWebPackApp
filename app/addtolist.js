@@ -19,12 +19,34 @@ export default Form;
 
 class Form extends Component
 {
-    state = {};
+    state = {
 
+    };
+
+    inputValue = '';
+
+    fornSubmitFunc = (event) => {
+        event.preventDefault();
+    };
+
+    onChanheInputFunc = (event) => {
+        console.log(event.target.value);
+        this.inputValue = event.target.value;
+    };
+
+    onClickButton = () =>
+    {
+        this.props.addTaskFunc(this.inputValue)
+    };
 
 
     render() {
-        return(<div>HelloForm</div>
+        return(<div>
+                <form onSubmit={this.fornSubmitFunc}>
+                    <input onChange={this.onChanheInputFunc} />
+                    <button onClick={this.onClickButton}> -- AddNewTask -- </button>
+                </form>
+            </div>
         )
     }
 

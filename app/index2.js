@@ -65,7 +65,7 @@ class TaskListClass extends Component {
 
                         <label>Введи нового MAN'а: <input onChange = { this.changeInputFunc } /></label>
 
-                        <button onClick={this.clickButtonFunc}>Ввести</button>
+                    <button onClick={this.clickButtonFunc}>Ввести</button>
 
                     </form>
 

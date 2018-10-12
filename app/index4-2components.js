@@ -34,18 +34,19 @@ class ParentComponent extends React.Component {
     };
 
     getNewDataFunc = (data) => {
-        console.log(this.state);
-        console.log('getNewDataFunc:',data);
-        this.state.newdate = data;
-        let newState = this.state;
-        this.setState({ newState })
+                console.log(this.state);
+                console.log('getNewDataFunc:',data);
+
+                this.state.newdate = data;
+                let newState = this.state;
+                this.setState({ newState })
     };
 
     render() {
         return (
             <div>
                 <p>State: {this.state.name + ' ' + this.state.lastname + ' age: ' + this.state.age + ' newDate: ' + this.state.newdate}</p>
-                <NewChildComponent getNewDataFunc={ ( arg ) => { this.getNewDataFunc(arg); console.log('render arg: ',aaaa) }  } />
+                <NewChildComponent getNewDataFunc={ ( arg ) => { this.getNewDataFunc(arg); console.log('render arg: ',arg) }  } />
             </div>
         )
     }

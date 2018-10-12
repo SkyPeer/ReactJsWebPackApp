@@ -49,8 +49,15 @@ function renderList(arg) {
         };
 
 
-        addTaskFunc = (element) => {
-            console.log(element)
+        addTaskFunc = (arg) => {
+            console.log('addTaskFunc arg:  ', arg)
+            let taskListArray = this.state.taskListArray;
+            taskListArray.push(
+                {
+                    title: arg,
+                    complete: false
+                })
+            this.setState(taskListArray)
         };
 
 
@@ -86,7 +93,7 @@ function renderList(arg) {
                 </div> */
                 <div>
                     {createList(this.state.taskListArray, this.onClickFunc, this.delTaskFunc)}
-                    <Form />
+                    <Form addTaskFunc = {(newtask)=>{this.addTaskFunc(newtask)}}/>
                 </div>
 
             )

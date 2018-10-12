@@ -158,13 +158,34 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "inputValue", '');
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "fornSubmitFunc", function (event) {
+      event.preventDefault();
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChanheInputFunc", function (event) {
+      console.log(event.target.value);
+      _this.inputValue = event.target.value;
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickButton", function () {
+      _this.props.addTaskFunc(_this.inputValue);
+    });
+
     return _this;
   }
 
   _createClass(Form, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "HelloForm");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.fornSubmitFunc
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.onChanheInputFunc
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.onClickButton
+      }, " -- AddNewTask -- ")));
     }
   }]);
 
@@ -675,7 +696,7 @@ function (_React$Component2) {
         getNewDataFunc: function getNewDataFunc(arg) {
           _this4.getNewDataFunc(arg);
 
-          console.log('render arg: ', aaaa);
+          console.log('render arg: ', arg);
         }
       }));
     }
@@ -765,8 +786,15 @@ function renderList(arg) {
         _this.setState(taskListArray);
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addTaskFunc", function (element) {
-        console.log(element);
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addTaskFunc", function (arg) {
+        console.log('addTaskFunc arg:  ', arg);
+        var taskListArray = _this.state.taskListArray;
+        taskListArray.push({
+          title: arg,
+          complete: false
+        });
+
+        _this.setState(taskListArray);
       });
 
       return _this;
@@ -798,11 +826,17 @@ function renderList(arg) {
           console.log(idx)
       }; */
       value: function render() {
+        var _this2 = this;
+
         return (
           /*<div>
               <h1>{this.state.taskListArray}</h1>
           </div> */
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object(_createlist__WEBPACK_IMPORTED_MODULE_1__["default"])(this.state.taskListArray, this.onClickFunc, this.delTaskFunc), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addtolist__WEBPACK_IMPORTED_MODULE_2__["default"], null))
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object(_createlist__WEBPACK_IMPORTED_MODULE_1__["default"])(this.state.taskListArray, this.onClickFunc, this.delTaskFunc), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addtolist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            addTaskFunc: function addTaskFunc(newtask) {
+              _this2.addTaskFunc(newtask);
+            }
+          }))
         );
       }
     }]);
