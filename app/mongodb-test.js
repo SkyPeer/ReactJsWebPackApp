@@ -5,8 +5,6 @@ let data = '';
 
     mongoClient.connect(url, function (err, client) {
 
-
-
         const db = client.db("usersdb");
         const collection = db.collection("users");
 
@@ -15,12 +13,14 @@ let data = '';
 
         collection.find().toArray(function (err, results) {
             client.close();
-          //  console.log('results', results);
+            //  console.log('results', results);
             data = results;
             return results;
         });
 
     });
+
+
 
 function func() {
     console.log('------------- data: ',data);
