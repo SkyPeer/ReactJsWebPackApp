@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import createList from './createlist'
-import addlist from './addtolist'
+import Form from './addtolist'
 
 function renderList(arg) {
 
@@ -86,7 +86,7 @@ function renderList(arg) {
                 </div> */
                 <div>
                     {createList(this.state.taskListArray, this.onClickFunc, this.delTaskFunc)}
-                    {addlist(this.addTaskFunc)}
+                    <Form />
                 </div>
 
             )
