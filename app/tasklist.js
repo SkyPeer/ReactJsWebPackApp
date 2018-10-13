@@ -1,5 +1,9 @@
 import renderList from './renderlist';
 
+
+
+
+
 let readyRenderList = renderList([
     {
         title: 'Выучить Реакт',
