@@ -756,18 +756,22 @@ function renderList(arg) {
   function (_Component) {
     _inherits(TaskListComponent, _Component);
 
-    /*constructor(props){
-        super(props);
-          this.state = {
-            taskListArray: arg
-        }
-    } */
-    function TaskListComponent(props) {
+    function TaskListComponent() {
+      var _getPrototypeOf2;
+
       var _this;
 
       _classCallCheck(this, TaskListComponent);
 
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(TaskListComponent).call(this, props));
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(TaskListComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+        taskListArray: arg
+      });
 
       _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickFunc", function (index) {
         var taskListArray = _this.state.taskListArray;
@@ -796,34 +800,10 @@ function renderList(arg) {
         _this.setState(taskListArray);
       });
 
-      _this.state = {
-        taskListArray: arg
-      };
       return _this;
     }
 
     _createClass(TaskListComponent, [{
-      key: "componentDidMount",
-      value: function componentDidMount() {
-        fetch('http://localhost:3000/test').then(function (response) {
-          return response.json();
-        }).then(function (data) {
-          return console.log(data);
-        });
-      }
-      /*onClickFunc__ = (index) => {
-      //console.log('onClickFunc:', index);
-      //console.log(this.state);
-          let taskListArray = this.state.taskListArray;
-      //console.log(typeof taskListArray, Array.isArray(taskListArray)); // object array-true
-          taskListArray.push({
-      title: 'test: №' + index,
-      complete: false});
-      this.setState(taskListArray);
-          console.log(taskListArray)
-      }; */
-
-    }, {
       key: "render",
 
       /*
@@ -902,75 +882,8 @@ class TaskList extends Component{
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _renderlist__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderlist */ "./app/renderlist.js");
 
-/*const mongoose = require('mongoose');
-let Schema = mongoose.Schema;
-mongoose.Promise = global.Promise;
-
-let taskSchema = new Schema({
-    title: String,
-    complete: Boolean
-});
-
-mongoose.connect('mongodb://localhost:27017/tasks', {
-    useNewUrlParser: true,
-})
-    .then(() => {console.log('mongodb has started')})
-    .catch(e => {console.log(e)});
-
-
-let Task = mongoose.model("Task", taskSchema);
-
-/*
- let task = new Task({
- title: "НЕ Выучить Ангуляр",
- complete: false
- });
-
- task.save(function(err){
- mongoose.disconnect();  // отключение от базы данных
-
- if(err) return console.log(err);
- console.log("Сохранен объект", task);
- });
-*/
-
-/*
-let tasksArray = [];
-
-Task.find({}, function(err, docs){
-    mongoose.disconnect();
-
-    if(err) return console.log(err);
-
-    //console.log(docs);
-    for (var i=0; i<docs.length; i++){
-        tasksArray.push(
-            {
-                title: docs[i].title,
-                complete: docs[i].complete
-            }
-        )
-    }
-
-
-}).then(()=> {
-    /*docsToArray(tasksArray)*/
-//  console.log(tasksArray)
-
-/*    let readyRenderList = renderList(tasksArray);
-    export default readyRenderList*/
-//});
-
-/*
-function docsToArray(titlesArray) {
-    for (var i=0; i<titlesArray.length; i++){
-        console.log(titlesArray[i].title)
-    }
-}
-*/
-
 var readyRenderList = Object(_renderlist__WEBPACK_IMPORTED_MODULE_0__["default"])([{
-  title: 'Выучить Реакт',
+  title: 'OLD!!! Выучить Реакт',
   complete: false
 }, {
   title: 'НЕ Выучить Реакт',
