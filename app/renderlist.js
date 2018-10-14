@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import createList from './createlist'
 import Form from './addtolist'
 
@@ -15,9 +16,22 @@ function renderList(arg) {
             }
         } */
 
-        state = {
-            taskListArray: arg
-        };
+        constructor(props){
+            super(props);
+
+            this.state = {
+                taskListArray: arg
+            };
+
+
+        }
+        componentDidMount() {
+            fetch('http://localhost:3000/test')
+                .then(response => response.json())
+                .then(data => console.log(data));
+        }
+
+
 
         /*onClickFunc__ = (index) => {
         //console.log('onClickFunc:', index);
@@ -30,6 +44,9 @@ function renderList(arg) {
         this.setState(taskListArray);
             console.log(taskListArray)
         }; */
+
+
+
 
         onClickFunc = (index) => {
             let taskListArray = this.state.taskListArray;

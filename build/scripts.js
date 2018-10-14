@@ -720,8 +720,10 @@ Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _createlist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createlist */ "./app/createlist.js");
-/* harmony import */ var _addtolist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addtolist */ "./app/addtolist.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _createlist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createlist */ "./app/createlist.js");
+/* harmony import */ var _addtolist__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./addtolist */ "./app/addtolist.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -746,6 +748,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 function renderList(arg) {
   //console.log(arg);
   var TaskListComponent =
@@ -753,22 +756,18 @@ function renderList(arg) {
   function (_Component) {
     _inherits(TaskListComponent, _Component);
 
-    function TaskListComponent() {
-      var _getPrototypeOf2;
-
+    /*constructor(props){
+        super(props);
+          this.state = {
+            taskListArray: arg
+        }
+    } */
+    function TaskListComponent(props) {
       var _this;
 
       _classCallCheck(this, TaskListComponent);
 
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(TaskListComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-        taskListArray: arg
-      });
+      _this = _possibleConstructorReturn(this, _getPrototypeOf(TaskListComponent).call(this, props));
 
       _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickFunc", function (index) {
         var taskListArray = _this.state.taskListArray;
@@ -797,10 +796,34 @@ function renderList(arg) {
         _this.setState(taskListArray);
       });
 
+      _this.state = {
+        taskListArray: arg
+      };
       return _this;
     }
 
     _createClass(TaskListComponent, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        fetch('http://localhost:3000/test').then(function (response) {
+          return response.json();
+        }).then(function (data) {
+          return console.log(data);
+        });
+      }
+      /*onClickFunc__ = (index) => {
+      //console.log('onClickFunc:', index);
+      //console.log(this.state);
+          let taskListArray = this.state.taskListArray;
+      //console.log(typeof taskListArray, Array.isArray(taskListArray)); // object array-true
+          taskListArray.push({
+      title: 'test: №' + index,
+      complete: false});
+      this.setState(taskListArray);
+          console.log(taskListArray)
+      }; */
+
+    }, {
       key: "render",
 
       /*
@@ -832,7 +855,7 @@ function renderList(arg) {
           /*<div>
               <h1>{this.state.taskListArray}</h1>
           </div> */
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object(_createlist__WEBPACK_IMPORTED_MODULE_1__["default"])(this.state.taskListArray, this.onClickFunc, this.delTaskFunc), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addtolist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object(_createlist__WEBPACK_IMPORTED_MODULE_2__["default"])(this.state.taskListArray, this.onClickFunc, this.delTaskFunc), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addtolist__WEBPACK_IMPORTED_MODULE_3__["default"], {
             addTaskFunc: function addTaskFunc(newtask) {
               _this2.addTaskFunc(newtask);
             }
@@ -878,6 +901,73 @@ class TaskList extends Component{
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _renderlist__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderlist */ "./app/renderlist.js");
+
+/*const mongoose = require('mongoose');
+let Schema = mongoose.Schema;
+mongoose.Promise = global.Promise;
+
+let taskSchema = new Schema({
+    title: String,
+    complete: Boolean
+});
+
+mongoose.connect('mongodb://localhost:27017/tasks', {
+    useNewUrlParser: true,
+})
+    .then(() => {console.log('mongodb has started')})
+    .catch(e => {console.log(e)});
+
+
+let Task = mongoose.model("Task", taskSchema);
+
+/*
+ let task = new Task({
+ title: "НЕ Выучить Ангуляр",
+ complete: false
+ });
+
+ task.save(function(err){
+ mongoose.disconnect();  // отключение от базы данных
+
+ if(err) return console.log(err);
+ console.log("Сохранен объект", task);
+ });
+*/
+
+/*
+let tasksArray = [];
+
+Task.find({}, function(err, docs){
+    mongoose.disconnect();
+
+    if(err) return console.log(err);
+
+    //console.log(docs);
+    for (var i=0; i<docs.length; i++){
+        tasksArray.push(
+            {
+                title: docs[i].title,
+                complete: docs[i].complete
+            }
+        )
+    }
+
+
+}).then(()=> {
+    /*docsToArray(tasksArray)*/
+//  console.log(tasksArray)
+
+/*    let readyRenderList = renderList(tasksArray);
+    export default readyRenderList*/
+//});
+
+/*
+function docsToArray(titlesArray) {
+    for (var i=0; i<titlesArray.length; i++){
+        console.log(titlesArray[i].title)
+    }
+}
+*/
 
 var readyRenderList = Object(_renderlist__WEBPACK_IMPORTED_MODULE_0__["default"])([{
   title: 'Выучить Реакт',
