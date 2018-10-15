@@ -24,9 +24,9 @@ function renderList(arg) {
                     this.updateState(outPutArray);
                 })
                // .then(this.setState(data));
-<<<<<<< HEAD
+
         }
-=======
+
         } */
 
         /*onClickFunc__ = (index) => {
