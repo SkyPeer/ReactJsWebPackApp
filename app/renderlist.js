@@ -9,15 +9,19 @@ function renderList(arg) {
 
     class TaskListComponent extends Component{
 
+<<<<<<< HEAD
         constructor(props){
             super(props);
 
             this.state = {
+=======
+            state = {
+>>>>>>> 51436d4515467515286e09a88c428354e9958729
                 taskListArray: arg
             };
 
 
-        }
+        /*}
         componentDidMount() {
             fetch('http://localhost:3000/test')
                 .then(response => response.json())
@@ -27,7 +31,11 @@ function renderList(arg) {
                     this.updateState(outPutArray);
                 })
                // .then(this.setState(data));
+<<<<<<< HEAD
         }
+=======
+        } */
+>>>>>>> 51436d4515467515286e09a88c428354e9958729
 
 
 
