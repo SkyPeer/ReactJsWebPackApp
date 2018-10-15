@@ -9,14 +9,7 @@ function renderList(arg) {
 
     class TaskListComponent extends Component{
 
-<<<<<<< HEAD
-        constructor(props){
-            super(props);
-
-            this.state = {
-=======
             state = {
->>>>>>> 51436d4515467515286e09a88c428354e9958729
                 taskListArray: arg
             };
 
@@ -35,9 +28,6 @@ function renderList(arg) {
         }
 =======
         } */
->>>>>>> 51436d4515467515286e09a88c428354e9958729
-
-
 
         /*onClickFunc__ = (index) => {
         //console.log('onClickFunc:', index);
