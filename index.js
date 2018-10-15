@@ -19,7 +19,7 @@ app.get('/test', (req, res) => {
 
     // opens connection to mongodb
     MongoClient.connect(mongoUrl).then(client => {
-
+        let tasksArray = [];
         // creates const for our database
         const db = client.db(dbName);
 
@@ -32,9 +32,19 @@ app.get('/test', (req, res) => {
             // logs message upon finding collection
             console.log('found tasks for index');
 
-            console.log(docs);
+            //console.log(docs);
             // renders index ejs template and passes employees array as data
-            res.send(docs);
+
+            for (let i=0; i<docs.length; i++){
+                tasksArray.push(
+                    {
+                        title: docs[i].title,
+                        complete: docs[i].complete
+                    }
+                )
+            }
+
+            res.send(tasksArray);
 
             // closes connection to mongodb and logs message
             client.close(() => console.log('connection closed'));

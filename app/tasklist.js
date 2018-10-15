@@ -67,7 +67,7 @@ function docsToArray(titlesArray) {
 
 let readyRenderList = renderList([
     {
-        title: 'Выучить Реакт',
+        title: 'OLD!!! Выучить Реакт',
         complete: false
     },
     {

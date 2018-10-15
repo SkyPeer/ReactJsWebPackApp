@@ -8,13 +8,6 @@ function renderList(arg) {
     //console.log(arg);
 
     class TaskListComponent extends Component{
-        /*constructor(props){
-            super(props);
-
-            this.state = {
-                taskListArray: arg
-            }
-        } */
 
         constructor(props){
             super(props);
@@ -28,7 +21,12 @@ function renderList(arg) {
         componentDidMount() {
             fetch('http://localhost:3000/test')
                 .then(response => response.json())
-                .then(data => console.log(data));
+                .then(data => {
+                    let outPutArray = data;
+                    console.log(outPutArray);
+                    this.updateState(outPutArray);
+                })
+               // .then(this.setState(data));
         }
 
 
@@ -73,7 +71,7 @@ function renderList(arg) {
                 {
                     title: arg,
                     complete: false
-                })
+                });
             this.setState(taskListArray)
         };
 

@@ -756,12 +756,6 @@ function renderList(arg) {
   function (_Component) {
     _inherits(TaskListComponent, _Component);
 
-    /*constructor(props){
-        super(props);
-          this.state = {
-            taskListArray: arg
-        }
-    } */
     function TaskListComponent(props) {
       var _this;
 
@@ -805,11 +799,16 @@ function renderList(arg) {
     _createClass(TaskListComponent, [{
       key: "componentDidMount",
       value: function componentDidMount() {
+        var _this2 = this;
+
         fetch('http://localhost:3000/test').then(function (response) {
           return response.json();
         }).then(function (data) {
-          return console.log(data);
-        });
+          var outPutArray = data;
+          console.log(outPutArray);
+
+          _this2.updateState(outPutArray);
+        }); // .then(this.setState(data));
       }
       /*onClickFunc__ = (index) => {
       //console.log('onClickFunc:', index);
@@ -849,7 +848,7 @@ function renderList(arg) {
           console.log(idx)
       }; */
       value: function render() {
-        var _this2 = this;
+        var _this3 = this;
 
         return (
           /*<div>
@@ -857,7 +856,7 @@ function renderList(arg) {
           </div> */
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object(_createlist__WEBPACK_IMPORTED_MODULE_2__["default"])(this.state.taskListArray, this.onClickFunc, this.delTaskFunc), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_addtolist__WEBPACK_IMPORTED_MODULE_3__["default"], {
             addTaskFunc: function addTaskFunc(newtask) {
-              _this2.addTaskFunc(newtask);
+              _this3.addTaskFunc(newtask);
             }
           }))
         );
@@ -970,7 +969,7 @@ function docsToArray(titlesArray) {
 */
 
 var readyRenderList = Object(_renderlist__WEBPACK_IMPORTED_MODULE_0__["default"])([{
-  title: 'Выучить Реакт',
+  title: 'OLD!!! Выучить Реакт',
   complete: false
 }, {
   title: 'НЕ Выучить Реакт',
