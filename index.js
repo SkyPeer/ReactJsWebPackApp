@@ -30,7 +30,7 @@ app.get('/test', (req, res) => {
         col.find({}).toArray().then(docs => {
 
             // logs message upon finding collection
-            console.log('found tasks for index');
+          //  console.log('found tasks for index');
 
             //console.log(docs);
             // renders index ejs template and passes employees array as data
@@ -39,15 +39,20 @@ app.get('/test', (req, res) => {
                 tasksArray.push(
                     {
                         title: docs[i].title,
-                        complete: docs[i].complete
+                        complete: docs[i].complete,
+                        id: docs[i]._id
                     }
+
+                   // docs[i].title
+
                 )
             }
 
             res.send(tasksArray);
 
             // closes connection to mongodb and logs message
-            client.close(() => console.log('connection closed'));
+            //client.close(() => console.log('connection closed'));
+            client.close();
 
             // checks for error in finding 'employees' collection
         }).catch(err => {

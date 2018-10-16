@@ -2,28 +2,26 @@
 //import testFunc from "./testfunc";
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
+
 
 class MongoData extends Component {
-    constructor(props){
-        super(props);
-
-    this.state = {
-        mans: [
-            {name: 'aaa'},
-            {name: 'bbb'}
-        ]
+    constructor(){
+        super();
+    this.state = {data: []}
     }
 
-
-
+    componentDidMount() {
+        fetch(`/test`)
+            .then(res => res.json())
+            .then(json => this.setState({data: json}))
     }
 
-    componentWillMount() {
-        fetch('http://localhost:3000/test')
-            .then(response => console.log('response', response))
-
-    }
+    onClickFunction = () =>{
+        let taskAddFunc = this.state.data;
+        taskAddFunc.push({title:'wait....', complete: false});
+        this.setState({taskAddFunc});
+        this.componentDidMount()
+    };
 
 
 
@@ -38,15 +36,28 @@ class MongoData extends Component {
             })
     }*/
 
-
     render() {
-        let {mans} = this.state; //деструкция
-        return (<div>{mans.map((item, idx) => <h5 key={idx}>{item}</h5>)}</div>);
+
+        //let {arrayForRender} = this.state.data;
+        console.log(this.state.data);
+        return (
+            <div>
+                <span>index-mongo.js</span>
+                <ul>
+                    {this.state.data.map((el) => (
+                        <li key={el.id} mongoId={el.id} onClick={()=>{this.onClickFunction()}}>
+                            {el.title}
+                        </li>
+                    ))}
+
+
+                </ul>
+            </div>
+        );
     }
 
 } //endOfComponent
 
 ReactDOM.render(
-    <MongoData/>,
-    document.getElementById('mongoindex')
-);
+    <MongoData />,
+    document.getElementById('indexmongo'));
