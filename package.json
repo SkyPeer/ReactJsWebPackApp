@@ -10,8 +10,10 @@
     "express": "^4.16.3",
     "helmet": "^3.12.1",
     "hoek": "^5.0.3",
+    "jsonparser": "^1.0.1",
     "mongodb": "^3.0.0",
-    "mongoose": "^5.3.3"
+    "mongoose": "^5.3.3",
+    "multer": "^1.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

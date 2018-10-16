@@ -7,13 +7,45 @@ const express = require('express'),
     server = http.createServer(app),
     MongoClient = require('mongodb').MongoClient,
     mongoUrl = 'mongodb://localhost:27017',
-    dbName = 'tasks';
+    dbName = 'tasks',
+    bodyParser = require('body-parser'),
+    multer = require('multer'),
+    upload = multer(),
+    jsonParser = bodyParser.json();
 
 /*app.get('/test', function (req, res) {
     //console.log(res);
     //console.log('testreq-ok!');
     res.send({hamma: 123});
 }); */
+/*
+app.post('/add', (req, res) => {
+
+    console.log('app.post', req.body, '  req:', req)
+
+     const note = {title: req.body.title, complete: req.body.complete};
+
+
+
+     MongoClient.connect(mongoUrl).then(client => {
+
+     const db = client.db(dbName);
+     db.collection('notes').insert(note, (err, result) => {
+     if (err) {
+     res.send({'error': 'An error has occurred'});
+     } else {
+     res.send(result.ops[0]);
+     }
+     });
+     });
+});
+*/
+
+app.put('/add', bodyParser.json(), function(req, res) {
+    console.log('updating-', req.body);
+    res.sendStatus(200);
+
+});
 
 app.get('/test', (req, res) => {
 
@@ -84,3 +116,12 @@ app.use('/', (req, res, next) => {
 server.listen(3000, function () {
     console.log(`Тестовое приложение запущено http://localhost:3000`);
 });
+
+
+/* add in DB
+*
+* // note_routes.js
+
+
+*
+* */

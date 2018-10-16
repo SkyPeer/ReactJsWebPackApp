@@ -16,6 +16,44 @@ class MongoData extends Component {
             .then(json => this.setState({data: json}))
     }
 
+    addToMongo = () => {
+      /*  fetch('/add', {
+            method: 'POST',
+            contentType: "application/json",
+            dataType: "json",
+            body: JSON.stringify({
+                email: '123'
+            }),
+        }).then(function(response) {
+            return response
+        }).then(function(body) {
+            console.log(body);
+        });*/
+
+        fetch('/add', {
+            method: 'put',
+            body: JSON.stringify({a: 'test'}),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(checkStatus)
+            .then(()=>console.log('updated!!!'));
+
+        function checkStatus(response) {
+            if (response.status >= 200 && response.status < 300) {
+                return response
+            } else {
+                let error = new Error(response.statusText);
+                error.response = response;
+                throw error
+            }
+        }
+
+    };
+
+
     onClickFunction = () =>{
         let taskAddFunc = this.state.data;
         taskAddFunc.push({title:'wait....', complete: false});
@@ -45,13 +83,14 @@ class MongoData extends Component {
                 <span>index-mongo.js</span>
                 <ul>
                     {this.state.data.map((el) => (
-                        <li key={el.id} mongoId={el.id} onClick={()=>{this.onClickFunction()}}>
+                        <li key={el.id} onClick={()=>{this.onClickFunction()}}>
                             {el.title}
                         </li>
                     ))}
 
 
                 </ul>
+                <button onClick={()=>{this.addToMongo()}}>ADD test</button>
             </div>
         );
     }

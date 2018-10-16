@@ -136,6 +136,43 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MongoData).call(this));
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addToMongo", function () {
+      /*  fetch('/add', {
+            method: 'POST',
+            contentType: "application/json",
+            dataType: "json",
+            body: JSON.stringify({
+                email: '123'
+            }),
+        }).then(function(response) {
+            return response
+        }).then(function(body) {
+            console.log(body);
+        });*/
+      fetch('/add', {
+        method: 'put',
+        body: JSON.stringify({
+          a: 'test'
+        }),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }).then(checkStatus).then(function () {
+        return console.log('updated!!!');
+      });
+
+      function checkStatus(response) {
+        if (response.status >= 200 && response.status < 300) {
+          return response;
+        } else {
+          var error = new Error(response.statusText);
+          error.response = response;
+          throw error;
+        }
+      }
+    });
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickFunction", function () {
       var taskAddFunc = _this.state.data;
       taskAddFunc.push({
@@ -190,12 +227,15 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "index-mongo.js"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.data.map(function (el) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: el.id,
-          mongoId: el.id,
           onClick: function onClick() {
             _this3.onClickFunction();
           }
         }, el.title);
-      })));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          _this3.addToMongo();
+        }
+      }, "ADD test"));
     }
   }]);
 
