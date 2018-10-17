@@ -31,15 +31,16 @@ class MongoData extends Component {
         });*/
 
         fetch('/add', {
-            method: 'put',
-            body: JSON.stringify({a: 'test'}),
+            method: 'post',
+            body: JSON.stringify({title: 'test', complete: true}),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         })
             .then(checkStatus)
-            .then(()=>console.log('updated!!!'));
+            .then(()=>console.log('inserted!!!'))
+            .then(()=>this.componentDidMount());
 
         function checkStatus(response) {
             if (response.status >= 200 && response.status < 300) {
@@ -52,6 +53,34 @@ class MongoData extends Component {
         }
 
     };
+
+    updateMongoFunc = () => {
+
+
+        fetch('/update', {
+            method: 'post',
+            body: JSON.stringify({_id: '5bc16e44d4b3d823f44d207f', complete: true}),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(checkStatus)
+            .then(()=>console.log('inserted!!!'))
+            .then(()=>this.componentDidMount());
+
+        function checkStatus(response) {
+            if (response.status >= 200 && response.status < 300) {
+                return response
+            } else {
+                let error = new Error(response.statusText);
+                error.response = response;
+                throw error
+            }
+        }
+
+    }
+
 
 
     onClickFunction = () =>{
@@ -83,14 +112,13 @@ class MongoData extends Component {
                 <span>index-mongo.js</span>
                 <ul>
                     {this.state.data.map((el) => (
-                        <li key={el.id} onClick={()=>{this.onClickFunction()}}>
+                        <li key={el.id} elemId={el.id} onClick={()=>{this.onClickFunction()}}>
                             {el.title}
                         </li>
                     ))}
-
-
                 </ul>
                 <button onClick={()=>{this.addToMongo()}}>ADD test</button>
+                <button onClick={()=>{this.updateMongoFunc()}}>Update test</button>
             </div>
         );
     }

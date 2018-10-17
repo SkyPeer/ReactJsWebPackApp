@@ -9,9 +9,10 @@ const express = require('express'),
     mongoUrl = 'mongodb://localhost:27017',
     dbName = 'tasks',
     bodyParser = require('body-parser'),
-    multer = require('multer'),
-    upload = multer(),
-    jsonParser = bodyParser.json();
+    multer = require('multer');
+    ObjectID = require('mongodb').ObjectID;
+    //upload = multer(),
+   // jsonParser = bodyParser.json();
 
 /*app.get('/test', function (req, res) {
     //console.log(res);
@@ -41,10 +42,32 @@ app.post('/add', (req, res) => {
 });
 */
 
-app.put('/add', bodyParser.json(), function(req, res) {
-    console.log('updating-', req.body);
+app.post('/update', bodyParser.json(), function (req, res) {
+    console.log('--- update', req.body);
+
+    MongoClient.connect(mongoUrl)
+        .then( client => {
+            const db = client.db(dbName);
+            const col = db.collection('tasks');
+            /*col.updateOne({id: ObjectId("5bc16e50ddc7c1304065cf56")}, {$set: {complete: true}}) */
+            /*col.updateOne(("_id", "5bc16e44d4b3d823f44d207f"), ("$set", ("zipcode", "10462")) ) */
+
+            col.updateOne({"_id": ObjectID(req.body._id)}, {$set: {"complete": true}})
+
+    });
+
+});
+
+app.post('/add', bodyParser.json(), function(req, res) {
+    console.log('---add', req.body);
     res.sendStatus(200);
 
+    MongoClient.connect(mongoUrl).then(client => {
+        const db = client.db(dbName);
+        const col = db.collection('tasks');
+
+        col.insert(req.body)
+    });
 });
 
 app.get('/test', (req, res) => {
