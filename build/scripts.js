@@ -153,7 +153,7 @@ function (_Component) {
         method: 'post',
         body: JSON.stringify({
           title: 'test',
-          complete: true
+          complete: false
         }),
         headers: {
           'Accept': 'application/json',
@@ -176,12 +176,39 @@ function (_Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "deleteMongo", function (idForDelete) {
+      fetch('/delete', {
+        method: 'post',
+        body: JSON.stringify({
+          _id: idForDelete
+        }),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }) //.then(checkStatus)
+      .then(function () {
+        return console.log('deleted!!!');
+      }).then(function () {
+        return _this.componentDidMount();
+      });
+      /* function checkStatus(response) {
+           if (response.status >= 200 && response.status < 300) {
+               return response
+           } else {
+               let error = new Error(response.statusText);
+               error.response = response;
+               throw error
+           }
+       }*/
+    });
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateMongoFunc", function () {
       fetch('/update', {
         method: 'post',
         body: JSON.stringify({
           _id: '5bc16e44d4b3d823f44d207f',
-          complete: true
+          complete: false
         }),
         headers: {
           'Accept': 'application/json',
@@ -258,11 +285,16 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "index-mongo.js"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.data.map(function (el) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: el.id,
-          elemId: el.id,
+          elemId: el.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           onClick: function onClick() {
             _this3.onClickFunction();
           }
-        }, el.title);
+        }, el.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          onClick: function onClick() {
+            _this3.deleteMongo(el.id);
+          }
+        }, " X "));
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           _this3.addToMongo();

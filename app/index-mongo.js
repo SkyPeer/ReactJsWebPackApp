@@ -32,7 +32,7 @@ class MongoData extends Component {
 
         fetch('/add', {
             method: 'post',
-            body: JSON.stringify({title: 'test', complete: true}),
+            body: JSON.stringify({title: 'test', complete: false}),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -51,15 +51,41 @@ class MongoData extends Component {
                 throw error
             }
         }
-
     };
+
+
+
+    deleteMongo = (idForDelete) => {
+        fetch('/delete', {
+            method: 'post',
+            body: JSON.stringify({_id: idForDelete}),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+            //.then(checkStatus)
+            .then(()=>console.log('deleted!!!'))
+            .then(()=>this.componentDidMount());
+
+       /* function checkStatus(response) {
+            if (response.status >= 200 && response.status < 300) {
+                return response
+            } else {
+                let error = new Error(response.statusText);
+                error.response = response;
+                throw error
+            }
+        }*/
+    };
+
 
     updateMongoFunc = () => {
 
 
         fetch('/update', {
             method: 'post',
-            body: JSON.stringify({_id: '5bc16e44d4b3d823f44d207f', complete: true}),
+            body: JSON.stringify({_id: '5bc16e44d4b3d823f44d207f', complete: false}),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -78,9 +104,7 @@ class MongoData extends Component {
                 throw error
             }
         }
-
-    }
-
+    };
 
 
     onClickFunction = () =>{
@@ -112,8 +136,9 @@ class MongoData extends Component {
                 <span>index-mongo.js</span>
                 <ul>
                     {this.state.data.map((el) => (
-                        <li key={el.id} elemId={el.id} onClick={()=>{this.onClickFunction()}}>
-                            {el.title}
+                        <li key={el.id} elemId={el.id}>
+                            <div onClick={()=>{this.onClickFunction()}}>{el.title}</div>
+                            <div onClick={()=>{this.deleteMongo(el.id)}}> X </div>
                         </li>
                     ))}
                 </ul>

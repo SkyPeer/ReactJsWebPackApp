@@ -14,33 +14,22 @@ const express = require('express'),
     //upload = multer(),
    // jsonParser = bodyParser.json();
 
-/*app.get('/test', function (req, res) {
-    //console.log(res);
-    //console.log('testreq-ok!');
-    res.send({hamma: 123});
-}); */
-/*
-app.post('/add', (req, res) => {
 
-    console.log('app.post', req.body, '  req:', req)
+app.post('/delete', bodyParser.json(), function (req, res){
+    console.log('--- delete', req.body);
 
-     const note = {title: req.body.title, complete: req.body.complete};
+    MongoClient.connect(mongoUrl)
+        .then( client => {
+            const db = client.db(dbName);
+            const col = db.collection('tasks');
+            /*col.updateOne({id: ObjectId("5bc16e50ddc7c1304065cf56")}, {$set: {complete: true}}) */
+            /*col.updateOne(("_id", "5bc16e44d4b3d823f44d207f"), ("$set", ("zipcode", "10462")) ) */
 
+            col.deleteOne({"_id": ObjectID(req.body._id)}).then(res.sendStatus(200))
 
-
-     MongoClient.connect(mongoUrl).then(client => {
-
-     const db = client.db(dbName);
-     db.collection('notes').insert(note, (err, result) => {
-     if (err) {
-     res.send({'error': 'An error has occurred'});
-     } else {
-     res.send(result.ops[0]);
-     }
-     });
-     });
+        });
 });
-*/
+
 
 app.post('/update', bodyParser.json(), function (req, res) {
     console.log('--- update', req.body);
@@ -52,7 +41,7 @@ app.post('/update', bodyParser.json(), function (req, res) {
             /*col.updateOne({id: ObjectId("5bc16e50ddc7c1304065cf56")}, {$set: {complete: true}}) */
             /*col.updateOne(("_id", "5bc16e44d4b3d823f44d207f"), ("$set", ("zipcode", "10462")) ) */
 
-            col.updateOne({"_id": ObjectID(req.body._id)}, {$set: {"complete": true}})
+            col.updateOne({"_id": ObjectID(req.body._id)}, {$set: {"complete": req.body.complete}})
 
     });
 
