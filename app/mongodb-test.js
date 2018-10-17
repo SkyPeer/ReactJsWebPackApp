@@ -5,18 +5,18 @@ let data = '';
 
     mongoClient.connect(url, function (err, client) {
 
-        const db = client.db("usersdb");
-        const collection = db.collection("users");
+            const db = client.db("usersdb");
+            const collection = db.collection("users");
 
-        if (err) return console.log(err);
+            if (err) return console.log(err);
 
 
-        collection.find().toArray(function (err, results) {
-            client.close();
-            //  console.log('results', results);
-            data = results;
-            return results;
-        });
+            collection.find().toArray(function (err, results) {
+                client.close();
+                //  console.log('results', results);
+                data = results;
+                return results;
+            });
 
     });
 

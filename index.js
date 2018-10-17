@@ -9,10 +9,43 @@ const express = require('express'),
     mongoUrl = 'mongodb://localhost:27017',
     dbName = 'tasks',
     bodyParser = require('body-parser'),
-    multer = require('multer');
-    ObjectID = require('mongodb').ObjectID;
+    multer = require('multer'),
+    ObjectID = require('mongodb').ObjectID,
+    mongoose = require('mongoose');
+
+//mongoose = require('mongoose');
+
+
+mongoose.connect('mongodb://localhost:27017/tasks', {
+    useNewUrlParser: true,
+})
+    .then(() => {console.log('mongodb has started')})
+    .catch((err) => {console.log(err)});
+
+
+mongoose.Promise = global.Promise;
+let TaskSchema = new mongoose.Schema({
+    title: String,
+    complete: Boolean,
+    /*prod_price: Number, */
+    /*  updated_at: { type: Date, default: Date.now }, */
+});
+
+let TaskModel = mongoose.model('tasks', TaskSchema);
+
     //upload = multer(),
    // jsonParser = bodyParser.json();
+
+
+app.get('/mongoose', function(req,res, next){
+
+    TaskModel.find(function (err, tasksDocs){
+        if (err) return next (err);
+        res.json(tasksDocs)
+    })
+});
+let date = new Date();
+console.log(date.getDate(), date.getMonth(), date.getFullYear());
 
 
 app.post('/delete', bodyParser.json(), function (req, res){

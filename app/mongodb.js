@@ -11,8 +11,7 @@ mongoose.connect('mongodb://localhost:27017/youtube-video', {
     useNewUrlParser: true,
 })
         .then(() => {console.log('mongodb has started')})
-        .catch(e => {console.log(e)});
-
+        .catch(err => {console.log(err)});
 
 let User = mongoose.model("User", userScheme);
 

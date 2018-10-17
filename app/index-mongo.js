@@ -112,6 +112,7 @@ class MongoData extends Component {
         taskAddFunc.push({title:'wait....', complete: false});
         this.setState({taskAddFunc});
         this.componentDidMount()
+
     };
 
 
