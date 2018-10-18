@@ -7,14 +7,30 @@ import ReactDOM from 'react-dom';
 class MongoData extends Component {
     constructor(){
         super();
-    this.state = {data: []}
+            this.state = {
+
+                data: [],
+                isOpen: false
+            }
     }
+
+    isopenChangeFunc = () =>
+    {
+        this.setState({isOpen:true})
+    };
+
+    iscloseChangeFunc = () =>
+    {
+        this.setState({isOpen:false})
+    };
 
     componentDidMount() {
         fetch(`/test`)
             .then(res => res.json())
             .then(json => this.setState({data: json}))
     }
+
+
 
     addToMongo = () => {
       /*  fetch('/add', {
@@ -129,9 +145,9 @@ class MongoData extends Component {
     }*/
 
     render() {
-
+       const body = this.state.isOpen && <section className="card-text">OPEN TEXT TEXT OPEN TEXT TEXT OPEN TEXT TEXT OPEN TEXT TEXT </section>;
         //let {arrayForRender} = this.state.data;
-        console.log(this.state.data);
+        console.log(this.state);
         return (
             <div>
                 <span>index-mongo.js</span>
@@ -140,11 +156,15 @@ class MongoData extends Component {
                         <li key={el.id} elemId={el.id}>
                             <div onClick={()=>{this.onClickFunction()}}>{el.title}</div>
                             <div onClick={()=>{this.deleteMongo(el.id)}}> X </div>
+                            {body}
                         </li>
                     ))}
                 </ul>
                 <button onClick={()=>{this.addToMongo()}}>ADD test</button>
-                <button onClick={()=>{this.updateMongoFunc()}}>Update test</button>
+                <button onClick={()=>{this.updateMongoFunc()}}>Update true/false</button>
+                <button onClick={()=>{this.componentDidMount()}}>REFRESH</button>
+                <button onClick={()=>{this.isopenChangeFunc()}}>isOpen</button>
+                <button onClick={()=>{this.iscloseChangeFunc()}}>isClose</button>
             </div>
         );
     }

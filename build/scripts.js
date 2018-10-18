@@ -136,6 +136,18 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MongoData).call(this));
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "isopenChangeFunc", function () {
+      _this.setState({
+        isOpen: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "iscloseChangeFunc", function () {
+      _this.setState({
+        isOpen: false
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addToMongo", function () {
       /*  fetch('/add', {
             method: 'POST',
@@ -246,7 +258,8 @@ function (_Component) {
     });
 
     _this.state = {
-      data: []
+      data: [],
+      isOpen: false
     };
     return _this;
   }
@@ -280,8 +293,11 @@ function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      //let {arrayForRender} = this.state.data;
-      console.log(this.state.data);
+      var body = this.state.isOpen && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "card-text"
+      }, "OPEN TEXT TEXT OPEN TEXT TEXT OPEN TEXT TEXT OPEN TEXT TEXT "); //let {arrayForRender} = this.state.data;
+
+      console.log(this.state);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "index-mongo.js"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.data.map(function (el) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: el.id,
@@ -294,7 +310,7 @@ function (_Component) {
           onClick: function onClick() {
             _this3.deleteMongo(el.id);
           }
-        }, " X "));
+        }, " X "), body);
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           _this3.addToMongo();
@@ -303,7 +319,19 @@ function (_Component) {
         onClick: function onClick() {
           _this3.updateMongoFunc();
         }
-      }, "Update test"));
+      }, "Update true/false"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          _this3.componentDidMount();
+        }
+      }, "REFRESH"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          _this3.isopenChangeFunc();
+        }
+      }, "isOpen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          _this3.iscloseChangeFunc();
+        }
+      }, "isClose"));
     }
   }]);
 

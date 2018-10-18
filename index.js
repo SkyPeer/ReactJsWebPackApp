@@ -158,7 +158,7 @@ app.use('/', (req, res, next) => {
     res.sendFile('index.html', {root: __dirname})
 });
 
-server.listen(3000, function () {
+server.listen(3100, function () {
     console.log(`Тестовое приложение запущено http://localhost:3000`);
 });
 
