@@ -8,9 +8,8 @@ class MongoData extends Component {
     constructor(){
         super();
             this.state = {
-
                 data: [],
-                isOpen: false
+                openTask: null
             }
     }
 
@@ -131,7 +130,10 @@ class MongoData extends Component {
 
     };
 
-
+    closeTestFunc = (id) =>
+    {
+        this.setState({openTask: id})
+    };
 
     /*
     componentWillMount() {
@@ -144,8 +146,12 @@ class MongoData extends Component {
             })
     }*/
 
+
+
     render() {
-       const body = this.state.isOpen && <section className="card-text">OPEN TEXT TEXT OPEN TEXT TEXT OPEN TEXT TEXT OPEN TEXT TEXT </section>;
+
+
+
         //let {arrayForRender} = this.state.data;
         console.log(this.state);
         return (
@@ -156,7 +162,13 @@ class MongoData extends Component {
                         <li key={el.id} elemId={el.id}>
                             <div onClick={()=>{this.onClickFunction()}}>{el.title}</div>
                             <div onClick={()=>{this.deleteMongo(el.id)}}> X </div>
-                            {body}
+
+                            <div>
+                                {el.id === this.state.openTask && (<section>----------    {el.title} + {el.id}</section>)}
+                            </div>
+
+                            <button onClick={()=>{this.closeTestFunc(el.id)}}>OPEN</button>
+                            <button>CLOSE</button>
                         </li>
                     ))}
                 </ul>

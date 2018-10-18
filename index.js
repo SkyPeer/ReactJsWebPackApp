@@ -44,8 +44,16 @@ app.get('/mongoose', function(req,res, next){
         res.json(tasksDocs)
     })
 });
+
+
 let date = new Date();
 console.log(date.getDate(), date.getMonth(), date.getFullYear());
+
+function getRandomArbitary()
+{
+    return Math.random() * (9999 - 1) + 2000;
+}
+console.log('random number', parseInt(getRandomArbitary()))
 
 
 app.post('/delete', bodyParser.json(), function (req, res){

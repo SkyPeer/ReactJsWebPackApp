@@ -13,7 +13,8 @@
     "jsonparser": "^1.0.1",
     "mongodb": "^3.0.0",
     "mongoose": "^5.3.3",
-    "multer": "^1.4.1"
+    "multer": "^1.4.1",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
