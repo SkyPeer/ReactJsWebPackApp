@@ -1,12 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { Route, Link} from 'react-router-dom'
+import { render } from 'react-dom'
+import { Link } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
-import createBrowserHistory from 'history/createBrowserHistory'
+import { Switch, Route } from 'react-router-dom'
 
-const MyRouting = () => (
-<Router>
+
+const Main = () => (
+
         <div>
             <h2>Routes</h2>
             <ul>
@@ -23,23 +23,9 @@ const MyRouting = () => (
                     <Link to={`/props-v-state`}>Props v. State</Link>
                 </li>
             </ul>
-
-            <Route
-                exact
-               path={'/'} // "/topics"
-                component={HomeComponent}/>
-
-            <Route //exact
-                //exact
-                path={'/:topicsId'}
-                component={DefaultComponet}
-
-            />
-
-
-
         </div>
-</Router>);
+);
+
 
 let fooFunc = (arggg) => {
     return <span>{arggg}</span>
@@ -49,23 +35,15 @@ const DefaultComponet = (props) => (
     <div>
         <h3> - - DefaultComponet - -  match.params.... shmarams: = {fooFunc(props.match.params.topicsId)}</h3>
         {console.log(props.match.params.topicsId)}
-        <Link to={`/`}>home</Link>
+        <Link to={'/'}>home</Link>
     </div>
 );
 
-const HomeComponent = (props) =>(
-  <div>
-      <h3>---- HomeComponent!</h3>
-
-  </div>
-
-);
-
+const Routing = () => (
+        <Switch>
+            <Route exact path='/' component={Main}/>
+            <Route path='/:number' component={DefaultComponet}/>
+        </Switch>
+    );
 
 
-//export default BasicExample;
-
-ReactDOM.render(
-    <BrowserRouter>
-    <MyRouting/>
-</BrowserRouter>, document.getElementById('myrouter'));

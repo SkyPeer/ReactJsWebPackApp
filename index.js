@@ -47,7 +47,7 @@ app.get('/mongoose', function(req,res, next){
 
 
 let date = new Date();
-console.log(date.getDate(), date.getMonth(), date.getFullYear());
+console.log(date.getDate(), date.getMonth()+1, date.getFullYear());
 
 function getRandomArbitary()
 {
@@ -167,7 +167,7 @@ app.use('/', (req, res, next) => {
 });
 
 server.listen(3100, function () {
-    console.log(`Тестовое приложение запущено http://localhost:3000`);
+    console.log(`Тестовое приложение запущено http://localhost:3100`);
 });
 
 
