@@ -5,7 +5,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 const history = createBrowserHistory();
 
-const Home = (props) => (
+const Home = () => (
     <div>
         <h2>Home</h2>
     </div>
@@ -48,7 +48,6 @@ class Navigation extends React.Component {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/contacts">Contacts</Link></li>
-
                 </ul>
 
                 <hr/>
@@ -56,7 +55,6 @@ class Navigation extends React.Component {
                 <Route exact path="/" component={Home}/>
                 <Route path="/about" component={About}/>
                 <Route path="/contacts" component={Contacts}/>
-
             </div>
         </BrowserRouter>
         )

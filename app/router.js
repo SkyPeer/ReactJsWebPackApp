@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
 
-const BasicExample = () => (
+const BasicExample = ({ match }) => (
     <Router>
         <div>
             <ul>
@@ -35,7 +35,6 @@ const Home = () => (
 const About = () => (
     <div>
         <h2>About</h2>
-
     </div>
 );
 
@@ -47,7 +46,7 @@ const Topics = ({ match }) => {
             <h2>Topics</h2>
             <ul>
                 <li>
-                    <Link to={`${match.url}/rendering`}>Rendering with React</Link>
+                    <Link to={'/topics/rendering@@!!'}>Rendering with React</Link>
                 </li>
                 <li>
                     <Link to={`${match.url}/componentss`}>Components 1!</Link>
@@ -57,19 +56,25 @@ const Topics = ({ match }) => {
                 </li>
             </ul>
 
-            <Route path={`${match.path}/:topicId`} component={Topic} />
             <Route
                 exact
                 path={match.path} // "/topics"
                 render={() => <h3>Please select a topic.</h3>}
             />
+
+            <Route //exact
+                   path={`${match.path}/:topicsId`}
+                   component={Topic} />
+
+
+
         </div>
     );
 };
 
 const Topic = ({ match }) => (
     <div>
-        <h3> ---- {match.params.topicId}</h3>
+        <h3> ---- {match.params.topicsId}</h3>
     </div>
 );
 
