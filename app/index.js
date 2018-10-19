@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 //import './index-mongo'
 //import './index-mongo-3'
 import './router'
+import './react-router2'
 
 
 //ReactDOM.render(<TaskList/>, document.getElementById('index'));
