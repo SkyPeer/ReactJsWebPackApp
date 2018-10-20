@@ -26,6 +26,7 @@ mongoose.connect('mongodb://localhost:27017/tasks', {
 mongoose.Promise = global.Promise;
 let TaskSchema = new mongoose.Schema({
     title: String,
+    desc: String,
     complete: Boolean,
     /*prod_price: Number, */
     /*  updated_at: { type: Date, default: Date.now }, */
@@ -37,13 +38,23 @@ let TaskModel = mongoose.model('tasks', TaskSchema);
    // jsonParser = bodyParser.json();
 
 
-app.get('/mongoose', function(req,res, next){
+app.get('/mongoose', function(req, res, next){
 
     TaskModel.find(function (err, tasksDocs){
         if (err) return next (err);
         res.json(tasksDocs)
     })
 });
+
+app.post('/mongoosefind', bodyParser.json(), function(req, res){
+    console.log('req.body', req.body);
+    TaskModel.findById(req.body, function (err, taskDocs) {
+        if (err) return next (err);
+        console.log(taskDocs);
+        res.json(taskDocs)
+    })
+});
+
 
 
 let date = new Date();
