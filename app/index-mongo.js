@@ -29,8 +29,6 @@ class MongoData extends Component {
             .then(json => this.setState({data: json}))
     }
 
-
-
     addToMongo = () => {
       /*  fetch('/add', {
             method: 'POST',
