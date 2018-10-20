@@ -22,7 +22,7 @@ class RouterComponent extends Component{
                         this.state.data.map((el) => (
                             <li key={el._id}>
                                 <div>
-                                    <Link to={`${el._id}`}>{el.title} {el.complete}</Link>
+                                    <Link to={`${el._id}`}>{el.title}</Link>
                                 </div>
                             </li>
                         ))}
@@ -55,17 +55,17 @@ class NewDeafultComponent extends Component{
         })
         .then(res => res.json())
         .then(json => this.setState({data: json}))
+        .then(()=>{console.log(this.state.data)})
     };
 
 
-
-
-    foo = () => {console.log(this.arg)};
-
     render(){
-        return(<div>
-            <h3> - - NewDefaultComponet - -  match.params.... shmarams: = {this.arg}</h3>
+        return(
+            <div>
 
+            <h5>Title: {this.state.data.title}</h5>
+            <h5>Desc: {this.state.data.desc}</h5>
+                <h5>Complete: {this.state.data.complete ? <span>Выполнена</span> : <span>Не выполнена</span>}</h5>
             <Link to={'/'}>home</Link>
         </div>);
     }
