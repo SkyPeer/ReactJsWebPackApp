@@ -5,10 +5,11 @@ import ReactDOM from 'react-dom';
 //import './index3-2components'
 //import './index4-2components'
 //import './index-mongo'
-//import './index-mongo-3'
-import './router'
-import './react-router2'
-import './react-router3'
+import './index-mongo-3'
+//import './router'
+//import './react-router2'
+//import './react-router3'
+import './react-router4'
 
 
 //ReactDOM.render(<TaskList/>, document.getElementById('index'));

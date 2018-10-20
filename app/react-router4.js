@@ -5,9 +5,11 @@ import { BrowserRouter } from 'react-router-dom'
 import { Switch, Route } from 'react-router-dom'
 
 
-const Main = () => (
 
-        <div>
+
+
+
+const Main = () => (<div>
             <h2>Routes</h2>
             <ul>
                 <li>
@@ -23,27 +25,34 @@ const Main = () => (
                     <Link to={`/props-v-state`}>Props v. State</Link>
                 </li>
             </ul>
-        </div>
-);
-
+        </div>);
 
 let fooFunc = (arggg) => {
     return <span>{arggg}</span>
 };
 
-const DefaultComponet = (props) => (
-    <div>
-        <h3> - - DefaultComponet - -  match.params.... shmarams: = {fooFunc(props.match.params.topicsId)}</h3>
-        {console.log(props.match.params.topicsId)}
+const DefaultComponet = (props) =>
+{
+    let arg = props.match.params.number;
+    return(<div>
+        <h3> - - DefaultComponet - -  match.params.... shmarams: = {fooFunc(arg)}</h3>
+        {console.log(arg)}
         <Link to={'/'}>home</Link>
-    </div>
-);
+    </div>);
+};
 
-const Routing = () => (
-        <Switch>
+
+const Routing = () => (<Switch>
             <Route exact path='/' component={Main}/>
             <Route path='/:number' component={DefaultComponet}/>
-        </Switch>
-    );
+        </Switch>);
 
+const Api = () =>(<div>
+        <Routing />
+    </div>);
 
+render((
+    <BrowserRouter>
+        <Api />
+    </BrowserRouter>
+), document.getElementById('apiRouter'));
