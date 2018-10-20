@@ -36,7 +36,6 @@ const DefaultComponet = (props) =>
     </div>);
 };
 
-
 const Routing = () => (<Switch>
     <Route exact path='/' component={Main}/>
     <Route path='/:number' component={DefaultComponet}/>
