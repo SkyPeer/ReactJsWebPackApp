@@ -148,8 +148,6 @@ class MongoData extends Component {
 
     render() {
 
-
-
         //let {arrayForRender} = this.state.data;
         console.log(this.state);
         return (
