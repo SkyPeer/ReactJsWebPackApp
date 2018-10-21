@@ -20,30 +20,28 @@ export default Form;
 class Form extends Component
 {
     state = {
-
+        inputValue : ''
     };
-
-    inputValue = '';
 
     fornSubmitFunc = (event) => {
         event.preventDefault();
     };
 
-    onChanheInputFunc = (event) => {
+    onChangeInputFunc = (event) => {
         console.log(event.target.value);
-        this.inputValue = event.target.value;
+        this.setState({inputValue : event.target.value});
     };
 
     onClickButton = () =>
     {
-        this.props.addTaskFunc(this.inputValue)
+        this.props.addTaskFunc(this.state.inputValue)
     };
 
 
     render() {
         return(<div>
                 <form onSubmit={this.fornSubmitFunc}>
-                    <input onChange={this.onChanheInputFunc} />
+                    <input onChange={this.onChangeInputFunc} value={this.state.inputValue} />
                     <button onClick={this.onClickButton}> -- AddNewTask -- </button>
                 </form>
             </div>

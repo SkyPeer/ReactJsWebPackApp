@@ -73,6 +73,7 @@ class NewDeafultComponent extends Component{
 } //NewDeafultComponent
 
 
+
 const Routing = () => (
     <Switch>
         <Route exact path='/' component={RouterComponent}/>
