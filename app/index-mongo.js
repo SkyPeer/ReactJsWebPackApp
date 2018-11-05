@@ -95,7 +95,6 @@ class MongoData extends Component {
 
     updateMongoFunc = () => {
 
-
         fetch('/update', {
             method: 'post',
             body: JSON.stringify({_id: '5bc16e44d4b3d823f44d207f', complete: false}),

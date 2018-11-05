@@ -11,7 +11,7 @@ class App extends Component {
     componentDidMount() {
         fetch(`http://localhost:3000/test`)
             .then(res => res.json())
-            .then(json => this.setState({ data: json }));
+                .then(json => this.setState({ data: json }));
     }
 
     render() {
